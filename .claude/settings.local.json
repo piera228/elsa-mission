@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(git --version)",
+      "WebSearch",
+      "WebFetch(domain:elevenlabs.io)",
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --yes)",
+      "Bash(npx --yes create-next-app@latest elsa --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack --yes)",
+      "Bash(rsync -a /private/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/elsa/ /Users/pieramalatrassi/Desktop/E.L.S.A/)",
+      "Bash(npm install *)",
+      "Bash(npm audit *)",
+      "Bash(node -e 'let d=\"\";process.stdin.on\\(\"data\",c=>d+=c\\).on\\(\"end\",\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(Object.entries\\(j.vulnerabilities||{}\\).map\\(\\([k,v]\\)=>k+\" \"+v.severity+\" via \"+\\(v.via||[]\\).map\\(x=>typeof x===\"string\"?x:x.title\\).join\\(\",\"\\)\\).join\\(\"\\\\n\"\\)\\)}\\)')",
+      "Bash(node -e \"const p=require\\('./package.json'\\);console.log\\(JSON.stringify\\({...p.dependencies,...p.devDependencies},null,1\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code} time=%{time_total}s\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Read(//Applications/**)",
+      "Bash(command -v chromium playwright)",
+      "Read(//Users/pieramalatrassi/Library/Caches/**)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1600,1000 --screenshot=/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/cover-desktop.png --virtual-time-budget=9000 http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1600,1000 --screenshot=/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/cover-2.png --virtual-time-budget=9000 http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"status=%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(cat)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1500,7200 --screenshot=/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/full.png --virtual-time-budget=14000 http://localhost:3000/)",
+      "Bash(python3 -)",
+      "Bash(python3 -c \"import PIL; print\\('pillow ok', PIL.__version__\\)\")",
+      "Bash(awk '{print $5}')",
+      "Bash(npx tsc *)",
+      "Bash(sed -i '' 's/ACT_III/DEMO_HOME/g' src/components/sections/MessageFromHome.tsx)",
+      "Bash(sed -i '' 's/ACT_IV/DEMO_REGISTER/g' src/components/sections/RegisterSwitcher.tsx)",
+      "Bash(echo \"=== exit: $? ===\")",
+      "Bash(curl -s -o /dev/null -w \"http=%{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(npm run *)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1500,1000 --screenshot=/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/cover-new.png --virtual-time-budget=12000 http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=1500,1000 --screenshot=/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/cover-3.png --virtual-time-budget=12000 http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --hide-scrollbars --window-size=390,900 --screenshot=/tmp/claude-501/-Users-pieramalatrassi-Desktop-E-L-S-A/fbc59c43-6f5c-4c61-9a0f-48147f46fc8a/scratchpad/m0.png --virtual-time-budget=12000 http://localhost:3000/)",
+      "Bash('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' --headless --disable-gpu --window-size=390,900 --virtual-time-budget=9000 --dump-dom http://localhost:3000/)"
+    ]
+  }
+}
