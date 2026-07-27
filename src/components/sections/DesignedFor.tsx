@@ -33,7 +33,7 @@ export function DesignedFor() {
           <span aria-hidden className="h-px flex-1 bg-seam" />
         </div>
 
-        <h2 className="mt-5 max-w-[24ch] font-display text-3xl leading-[1.12] text-paper text-balance sm:text-4xl md:text-5xl">
+        <h2 className="mt-5 font-display text-3xl leading-[1.12] text-paper text-balance sm:text-4xl md:text-5xl">
           <DecodeText text={DESIGNED_FOR.heading} />
         </h2>
       </Reveal>

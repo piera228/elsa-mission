@@ -203,7 +203,7 @@ export function TalkToElsa() {
                     key="idle"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="my-auto max-w-[44ch] text-[1.0625rem] leading-relaxed text-muted"
+                    className="my-auto text-[1.0625rem] leading-relaxed text-muted"
                   >
                     {TALK.idle}
                   </motion.p>

@@ -44,7 +44,7 @@ export function Personalize() {
 
                 <div className="min-w-0">
                   <h3 className="font-display text-lg leading-tight text-paper">{option.title}</h3>
-                  <p className="mt-1.5 max-w-[62ch] text-[0.95rem] leading-[1.65] text-paper/75">
+                  <p className="mt-1.5 text-[0.95rem] leading-[1.65] text-paper/75">
                     {option.body}
                   </p>
                 </div>

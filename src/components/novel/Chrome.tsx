@@ -63,12 +63,12 @@ export function SectionTitle({
         {model ? <code className="font-mono text-[0.7rem] text-elsa-deep">{model}</code> : null}
       </div>
 
-      <h2 className="mt-5 max-w-[24ch] font-display text-3xl leading-[1.12] text-paper text-balance sm:text-4xl md:text-5xl">
+      <h2 className="mt-5 font-display text-3xl leading-[1.12] text-paper text-balance sm:text-4xl md:text-5xl">
         <DecodeText text={heading} />
       </h2>
 
       {intro ? (
-        <p className="mt-6 max-w-[66ch] text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
+        <p className="mt-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
           {intro}
         </p>
       ) : null}
@@ -79,7 +79,7 @@ export function SectionTitle({
 /** Body prose. */
 export function Prose({ children }: { children: ReactNode }) {
   return (
-    <div className="max-w-[64ch] space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
+    <div className="space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
       {children}
     </div>
   );
@@ -88,7 +88,7 @@ export function Prose({ children }: { children: ReactNode }) {
 /** A caption beneath a scene. */
 export function Caption({ children }: { children: ReactNode }) {
   return (
-    <p className="mt-4 max-w-[56ch] font-mono text-xs leading-relaxed text-faint">{children}</p>
+    <p className="mt-4 font-mono text-xs leading-relaxed text-faint">{children}</p>
   );
 }
 
@@ -99,7 +99,7 @@ export function Caption({ children }: { children: ReactNode }) {
 export function Payoff({ children }: { children: ReactNode }) {
   return (
     <Reveal className="mt-14 border-t border-seam pt-12">
-      <p className="max-w-[68ch] font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
+      <p className="font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
         {children}
       </p>
     </Reveal>
