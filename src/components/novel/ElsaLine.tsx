@@ -135,7 +135,7 @@ function SilentNote() {
 
   return (
     <p className="mt-2 max-w-md font-mono text-[11px] leading-relaxed text-faint">
-      Silent mode — no ElevenLabs voice is connected to this deployment yet, so the line is being
+      Silent mode. No ElevenLabs voice is connected to this deployment yet, so the line is being
       paced rather than spoken. Add a key and this becomes her actual voice.
     </p>
   );

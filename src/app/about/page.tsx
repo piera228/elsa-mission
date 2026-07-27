@@ -5,9 +5,9 @@ import { Section, SectionTitle, Reveal } from "@/components/novel/Chrome";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About the project — E.L.S.A.",
+  title: "About the project · E.L.S.A.",
   description:
-    "How E.L.S.A. was built — a live voice agent on ElevenLabs and Gemini — its inspiration in TARS from Interstellar, and the vision of voice AI reaching deep-space missions.",
+    "How E.L.S.A. was built: a live voice agent on ElevenLabs and Gemini, its inspiration in TARS from Interstellar, and the vision of voice AI reaching deep-space missions.",
 };
 
 /** A small titled block of prose. */
@@ -41,7 +41,7 @@ export default function AboutPage() {
               heading="A voice built for the vast dark."
             />
             <p className="text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
-              E.L.S.A. — Eleven Labs Stellar Assistant — is an independent concept: a case that a
+              E.L.S.A., short for Eleven Labs Stellar Assistant, is an independent concept: a case that a
               human-sounding voice isn&apos;t just a convenience, but the interface that matters most
               where a crew is hands-full, eyes-forward, and years from home.
             </p>
@@ -49,13 +49,13 @@ export default function AboutPage() {
 
           <Block title="The vision">
             <p>
-              Most voice AI is sold for the living room — a faster way to do something a screen
+              Most voice AI is sold for the living room, a faster way to do something a screen
               already does. E.L.S.A. imagines the opposite: the place where a voice becomes
               essential. On a long-duration mission, a calm, trusted, instant voice is worth more
               than any display.
             </p>
             <p>
-              The vision behind this project is simple — that ElevenLabs&apos; voices belong not only
+              The vision behind this project is simple. ElevenLabs&apos; voices belong not only
               in podcasts and apps, but on the flight deck of a deep-space mission, as the human
               voice from home.
             </p>
@@ -63,10 +63,10 @@ export default function AboutPage() {
 
           <Block title="The inspiration">
             <p>
-              The spark was TARS, the voice-driven machine from <em>Interstellar</em> — proof of how
+              The spark was TARS, the voice-driven machine from <em>Interstellar</em>. Proof of how
               much presence a voice alone can carry. But E.L.S.A. deliberately goes further in one
               direction: it is never given a body or a face. No robot, no avatar, no screen
-              character — only light and sound. A voice-first idea gets weaker the moment it has
+              character, only light and sound. A voice-first idea gets weaker the moment it has
               something to look at.
             </p>
           </Block>
@@ -76,7 +76,7 @@ export default function AboutPage() {
               The site is a Next.js app (App Router, React 19, Tailwind v4, with the{" "}
               <code className="font-mono text-[0.9em] text-elsa-deep">motion</code>{" "}
               library for animation). One rule governs every design choice: amber light is E.L.S.A.&apos;s voice,
-              cold blue is instrumentation — and E.L.S.A. is never given a face. Light and sound only.
+              cold blue is instrumentation, and E.L.S.A. is never given a face. Light and sound only.
             </p>
             <p>
               Even the interface sounds are homemade: the ticks that play as the text decodes in are
@@ -87,8 +87,8 @@ export default function AboutPage() {
 
           <Block title="Talking to E.L.S.A.">
             <p>
-              There are two ways to hear E.L.S.A. The scripted exchanges — the crew&apos;s questions
-              and E.L.S.A.&apos;s answers — are voiced with ElevenLabs and played back instantly, so a
+              There are two ways to hear E.L.S.A. The scripted exchanges (the crew&apos;s questions
+              and E.L.S.A.&apos;s answers) are voiced with ElevenLabs and played back instantly, so a
               polished take always lands.
             </p>
             <p>
@@ -97,7 +97,7 @@ export default function AboutPage() {
               <code className="font-mono text-[0.9em] text-elsa-deep">Gemini 2.5 Flash</code>{" "}
               model reasons about what you say,{" "}
               <code className="font-mono text-[0.9em] text-elsa-deep">eleven_v3_conversational</code>{" "}
-              speaks the reply, and expressive mode — on by default with that voice — tunes the
+              speaks the reply, and expressive mode, on by default with that voice, tunes the
               delivery to sound empathetic, warm, patient and confident. You speak; E.L.S.A. answers,
               live.
             </p>

@@ -28,10 +28,10 @@ const mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: `${SITE.name} — ${SITE.expansion}`,
+  title: `${SITE.name} · ${SITE.expansion}`,
   description: SITE.description,
   openGraph: {
-    title: `${SITE.name} — ${SITE.expansion}`,
+    title: `${SITE.name} · ${SITE.expansion}`,
     description: SITE.description,
     url: SITE.url,
     siteName: SITE.name,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.expansion}`,
+    title: `${SITE.name} · ${SITE.expansion}`,
     description: SITE.description,
   },
 };

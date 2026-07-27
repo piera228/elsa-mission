@@ -84,7 +84,7 @@ export function MessageFromHome() {
           {isLoading
             ? "Synthesising"
             : isSpeaking
-              ? "Playing — in her voice"
+              ? "Playing, in her voice"
               : "Play in Maya's voice"}
         </span>
       </button>
@@ -92,7 +92,7 @@ export function MessageFromHome() {
       {configured === false ? (
         <p className="mt-4 font-mono text-[11px] leading-relaxed text-faint">
           Silent mode. With a cloned voice enrolled, this plays as a seven-year-old actually reading
-          it — which is the entire argument of this act.
+          it, which is the entire argument of this act.
         </p>
       ) : null}
     </figure>

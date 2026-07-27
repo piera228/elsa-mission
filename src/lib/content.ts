@@ -43,7 +43,7 @@ export const THE_SILENCE = {
   transmissionLabel: "Incoming transmission",
   headline: "890 million miles from home, the silence is the hardest part.",
   body: [
-    "The universe is vast, unforgiving, and indifferent to mistakes. The crew that changes history will be out there alone — surrounded by nothing, responsible for everything.",
+    "The universe is vast, unforgiving, and indifferent to mistakes. The crew that changes history will be out there alone, surrounded by nothing, responsible for everything.",
     "In that silence, they don't need another screen. They need a voice they recognize. Calm. Human. Capable of understanding an instruction and acting on it without hesitation.",
     "We don't send interfaces into deep space. We send the sound of home.",
   ],
@@ -97,14 +97,14 @@ export const HOW_IT_WORKS = {
   eyebrow: "Architecture",
   heading: "A closed loop that never leaves the hull.",
   intro:
-    "E.L.S.A. hears the crew through helmet comms, reasons against live mission state, and answers out loud — in less time than it takes to finish asking. Nothing in the path touches Earth, because nothing in the path can afford to.",
+    "E.L.S.A. hears the crew through helmet comms, reasons against live mission state, and answers out loud, in less time than it takes to finish asking. Nothing in the path touches Earth, because nothing in the path can afford to.",
   pipeline: [
     {
       stage: "Hear",
       model: "scribe_v2_realtime",
       latency: "~150 ms",
       title: "Streaming transcription with speaker diarisation",
-      body: "Not only what was said, but who said it — identified from voice alone across 90+ languages. Diarisation is what makes this a crew system rather than a single-user assistant: in an emergency, nobody announces their name first.",
+      body: "Not only what was said, but who said it, identified from voice alone across 90+ languages. Diarisation is what makes this a crew system rather than a single-user assistant: in an emergency, nobody announces their name first.",
     },
     {
       stage: "Reason",
@@ -128,7 +128,7 @@ export const HOW_IT_WORKS = {
     earth: `${MISSION.roundTripSeconds.toLocaleString("en-GB")} s`,
     // 10,380 / 0.8 ≈ 12,975
     factor: `~${Math.round(MISSION.roundTripSeconds / MISSION.onboardSeconds / 1000)},000× faster`,
-    note: "This is the entire argument for putting the voice on the vehicle. Not a better experience — the only workable one.",
+    note: "This is the entire argument for putting the voice on the vehicle. Not a better experience. The only workable one.",
   },
 } as const;
 
@@ -139,7 +139,7 @@ export const DEMO_REGISTER = {
   eyebrow: "Use case 01",
   heading: "Delivery is a safety parameter, not a style choice.",
   intro:
-    "A pressure warning has to be understood immediately and must not induce panic — because panic costs the crew the fine motor control and working memory they need to run the checklist. That makes how a sentence is delivered a certifiable requirement. Four deliveries of the same eleven words:",
+    "A pressure warning has to be understood immediately and must not induce panic, because panic costs the crew the fine motor control and working memory they need to run the checklist. That makes how a sentence is delivered a certifiable requirement. Four deliveries of the same eleven words:",
   sentence: "Pressure in the forward airlock is dropping. Come back inside.",
   deliveries: [
     {
@@ -181,9 +181,9 @@ export const DEMO_REGISTER = {
   ],
   /** Spoken aloud in the calm register — the section's thesis in her own voice. */
   voiceLine:
-    "Panic is contagious and I am the loudest thing in this room. Staying calm isn't a personality choice — it's part of the life support system.",
+    "Panic is contagious and I am the loudest thing in this room. Staying calm isn't a personality choice. It's part of the life support system.",
   payoff:
-    "eleven_v3 exposes delivery through inline audio tags — [calm], [urgent], [whispers] — which turns prosody into something specifiable. It can be written into a requirements document, reviewed, tested and signed off. No other modality in a spacecraft is allowed to be left to chance; with v3, this one no longer has to be.",
+    "eleven_v3 exposes delivery through inline audio tags ([calm], [urgent], [whispers]), which turns prosody into something specifiable. It can be written into a requirements document, reviewed, tested and signed off. No other modality in a spacecraft is allowed to be left to chance; with v3, this one no longer has to be.",
   model: "eleven_v3",
 } as const;
 
@@ -196,7 +196,7 @@ export const DEMO_HOME = {
   intro:
     "Deep-space bandwidth is rationed by physics. Audio messages from Earth compete with science data, navigation and telemetry for a link that is never wide enough, so they get compressed, queued or cut. For most of the history of spaceflight the honest answer to a crew member asking to hear their child has been: not this week.",
   argument:
-    "But the expensive part of a voice was never the message — it was the voice. Enrol it once before launch and the model flies with the vehicle at no recurring cost. After that, a message from home is a few hundred bytes of text, spoken aboard in the voice it was written in.",
+    "But the expensive part of a voice was never the message. It was the voice. Enrol it once before launch and the model flies with the vehicle at no recurring cost. After that, a message from home is a few hundred bytes of text, spoken aboard in the voice it was written in.",
   /**
    * A real event, not an invented scenario. On 19 July 2013 Cassini imaged Earth
    * from inside Saturn's shadow — a pale blue dot between the E and G rings,
@@ -210,7 +210,7 @@ export const DEMO_HOME = {
   },
   message: {
     from: "Maya",
-    relation: "Daughter, 7 — voice enrolled pre-launch",
+    relation: "Daughter, 7 · voice enrolled pre-launch",
     body: "Hi Mum. I lost my second tooth today, the one on the bottom. Grandpa says you can see Saturn from the garden if you know where to look, so we went outside and looked at it for a really long time. I waved. I know you can't see me wave. I did it anyway.",
   },
   /**
@@ -220,7 +220,7 @@ export const DEMO_HOME = {
    * is about 400 KB. 400,000 / 251 ≈ 1,600×.
    */
   closing:
-    "Two hundred and fifty-one bytes of text, spoken in her own voice. The same message streamed as 128 kbps audio runs about 400 kilobytes — some 1,600 times more link budget for an identical result. Which means bandwidth stops being the reason a crew member goes years without hearing their family.",
+    "Two hundred and fifty-one bytes of text, spoken in her own voice. The same message streamed as 128 kbps audio runs about 400 kilobytes, some 1,600 times more link budget for an identical result. Which means bandwidth stops being the reason a crew member goes years without hearing their family.",
   model: "eleven_ttv_v3",
 } as const;
 
@@ -231,7 +231,7 @@ export const DEMO_TALK = {
   eyebrow: "Use case 03",
   heading: "Presence, at conversational latency.",
   intro:
-    "Below about a second of round-trip latency, people stop addressing a system and start talking to someone. That threshold is the difference between a tool the crew operates and a presence the crew confides in — and over a seven-year mission, the second one is what keeps them intact.",
+    "Below about a second of round-trip latency, people stop addressing a system and start talking to someone. That threshold is the difference between a tool the crew operates and a presence the crew confides in, and over a seven-year mission, the second one is what keeps them intact.",
   note: "Four exchanges, each in a different register. Sub-second, entirely onboard.",
   model: "eleven_flash_v2_5 · scribe_v2_realtime",
 } as const;
@@ -254,7 +254,7 @@ export const EXCHANGES: Exchange[] = [
     questionAudio: "/voice/hows-the-ship-q.mp3",
     answerAudio: "/voice/hows-the-ship-a.mp3",
     reply:
-      "Everything's looking correct. Power, air, water, heat — all within margins, all trending flat. I ran the full diagnostic while you slept; nothing needs you tonight. The ship is quiet, and quiet is exactly what it should be. Rest easy.",
+      "Everything's looking correct. Power, air, water, heat. All within margins, all trending flat. I ran the full diagnostic while you slept; nothing needs you tonight. The ship is quiet, and quiet is exactly what it should be. Rest easy.",
   },
   {
     chip: "I'm scared.",
@@ -263,7 +263,7 @@ export const EXCHANGES: Exchange[] = [
     questionAudio: "/voice/im-scared-q.mp3",
     answerAudio: "/voice/im-scared-a.mp3",
     reply:
-      "I hear you. That fear isn't weakness — it's what keeps you sharp. But listen to me: you trained years for this, the ship is sound, and I'm watching every system, every second, so you don't have to. You are not out here alone. We go home together.",
+      "I hear you. That fear isn't weakness. It's what keeps you sharp. But listen to me: you trained years for this, the ship is sound, and I'm watching every system, every second, so you don't have to. You are not out here alone. We go home together.",
   },
   {
     chip: "Talk me through the landing.",
@@ -272,7 +272,7 @@ export const EXCHANGES: Exchange[] = [
     questionAudio: "/voice/landing-q.mp3",
     answerAudio: "/voice/landing-a.mp3",
     reply:
-      "Here's how it goes. In nineteen minutes we begin the burn — I'll count you into it. You'll feel the engines push, then a long, steady pull; that's normal, that's us slowing down. I have the numbers, you have the controls, and we've rehearsed this eleven times. One step at a time. I'll be with you the whole way down.",
+      "Here's how it goes. In nineteen minutes we begin the burn. I'll count you into it. You'll feel the engines push, then a long, steady pull; that's normal, that's us slowing down. I have the numbers, you have the controls, and we've rehearsed this eleven times. One step at a time. I'll be with you the whole way down.",
   },
 ];
 
@@ -283,11 +283,11 @@ export const TALK = {
   eyebrow: "Onboard console",
   heading: "Talk to E.L.S.A.",
   intro:
-    "This is the console the crew wakes to and speaks with — hands-free, eyes-free, always on. Ask what the crew would actually ask. Below a second of latency, it stops feeling like a system and starts feeling like someone.",
-  idle: "Choose a question — you'll hear the crew ask it, and E.L.S.A. answer.",
-  inputHint: "Live voice — coming soon",
+    "This is the console the crew wakes to and speaks with. Hands-free, eyes-free, always on. Ask what the crew would actually ask. Below a second of latency, it stops feeling like a system and starts feeling like someone.",
+  idle: "Choose a question. You'll hear the crew ask it, and E.L.S.A. answer.",
+  inputHint: "Live voice, coming soon",
   silentNote:
-    "Silent mode — no ElevenLabs voice is connected yet, so replies are paced rather than spoken. The transcript, the waveform and the timing are all real; only the audio is missing.",
+    "Silent mode. No ElevenLabs voice is connected yet, so replies are paced rather than spoken. The transcript, the waveform and the timing are all real; only the audio is missing.",
 } as const;
 
 /* ================================================================== *
@@ -334,14 +334,14 @@ export const HIGHLIGHTS = {
       unit: "minutes one way",
       title: "No round trip home",
       status: "open",
-      body: "At Saturn, a question and its answer are two hours and fifty-three minutes apart. The voice would have to hear, reason and reply without reaching a server at all — and nothing does that yet.",
+      body: "At Saturn, a question and its answer are two hours and fifty-three minutes apart. The voice would have to hear, reason and reply without reaching a server at all. Nothing does that yet.",
     },
     {
       figure: "Any",
       unit: "environment",
       title: "Built for the hardest missions",
       status: "open",
-      body: "It would have to hold through launch loads, radiation and seven years of vacuum — anywhere failure isn't an option, with no one to reboot it.",
+      body: "It would have to hold through launch loads, radiation and seven years of vacuum, anywhere failure isn't an option, with no one to reboot it.",
     },
     {
       figure: "24/7",
@@ -374,7 +374,7 @@ export const PERSONALIZE = {
   eyebrow: "Chosen before launch",
   heading: "Whose voice answers is up to the crew.",
   intro:
-    "E.L.S.A. isn't a stock voice. Before the system goes live, the operator chooses who they'll hear — a single recording that stays with them for as long as the mission lasts. Because trust isn't built in real time. It is carried in from before.",
+    "E.L.S.A. isn't a stock voice. Before the system goes live, the operator chooses who they'll hear: a single recording that stays with them for as long as the mission lasts. Because trust isn't built in real time. It is carried in from before.",
   options: [
     {
       title: "Someone you love",
@@ -382,14 +382,14 @@ export const PERSONALIZE = {
     },
     {
       title: "A trainer you trust",
-      body: "The instructor who ran you through every drill — a voice you already follow without a second thought.",
+      body: "The instructor who ran you through every drill. A voice you already follow without a second thought.",
     },
     {
       title: "A steady crewmate",
       body: "A commander or teammate whose calm you know by heart, on the channel whenever you need it.",
     },
   ],
-  payoff: "Familiar the whole way out — and the whole way home.",
+  payoff: "Familiar the whole way out, and the whole way home.",
 } as const;
 
 /* ================================================================== *
@@ -399,7 +399,7 @@ export const BEYOND = {
   eyebrow: "Beyond the mission",
   heading: "Deep space is the proof. It isn't the limit.",
   intro:
-    "These conditions — hands full, eyes forward, no time to look down — aren't unique to space. Neither is the value of a voice the crew can trust.",
+    "These conditions are not unique to space: hands full, eyes forward, no time to look down. Neither is the value of a voice the crew can trust.",
   domains: [
     {
       title: "Spaceflight",
@@ -468,7 +468,7 @@ export const POWERED_BY = {
   eyebrow: "How E.L.S.A. is built",
   heading: "Almost all of this ships today. One piece doesn't.",
   intro:
-    "Click 'Talk live' and it's real — reasoning, voice and understanding, wired together from models anyone can use right now.",
+    "Click 'Talk live' and it's real. Reasoning, voice and understanding, wired together from models anyone can use right now.",
   /** Badge shown against each capability. All four genuinely are available. */
   availableLabel: "Available today",
   capabilities: [
@@ -479,7 +479,7 @@ export const POWERED_BY = {
     },
     {
       title: "Speaks like a person",
-      body: "Eleven v3 Conversational turns each reply into natural, expressive speech, live over the call — v3's range at conversational latency.",
+      body: "Eleven v3 Conversational turns each reply into natural, expressive speech, live over the call. It is v3's range at conversational latency.",
       model: "eleven_v3_conversational",
     },
     {
@@ -489,7 +489,7 @@ export const POWERED_BY = {
     },
     {
       title: "Understands the crew",
-      body: "The agent transcribes what's said in real time — accented, exhausted, or whispered — so the crew just talks.",
+      body: "The agent transcribes what's said in real time, whether it's accented, exhausted or whispered. The crew just talks.",
       model: "ElevenAgents",
     },
   ],
@@ -524,7 +524,7 @@ export const NO_UPLINK = {
   eyebrow: "Working without a link",
   heading: "Earth is eighty minutes away. E.L.S.A. is not.",
   intro:
-    "Every voice assistant you have used answers over a network. At Saturn there is no network — only a link, eighty minutes wide. A question and its answer are a hundred and sixty minutes apart. So E.L.S.A. is built as two separate things, and only one of them ever crosses space.",
+    "Every voice assistant you have used answers over a network. At Saturn there is no network. There is only a link, eighty minutes wide. A question and its answer are a hundred and sixty minutes apart. So E.L.S.A. is built as two separate things, and only one of them ever crosses space.",
   channels: [
     {
       tag: "Channel A",
@@ -535,14 +535,14 @@ export const NO_UPLINK = {
     {
       tag: "Channel B",
       title: "Earth sends to the ship",
-      body: "Not a conversation. A procedure update from mission control. A message from a daughter. It crosses once, slowly, in one direction — and it is the only thing that crosses at all.",
+      body: "Not a conversation. A procedure update from mission control. A message from a daughter. It crosses once, slowly, in one direction. It is the only thing that crosses at all.",
       note: "It crosses as text. Earth does not transmit audio, it transmits words. The ship speaks them in a voice it already carries: kilobytes instead of megabytes, and the crew still hears the person they love saying it.",
     },
   ],
   points: [
     {
       title: "The voice is made on Earth",
-      body: "Cloning is a connected, consented studio session, months before launch. What flies is a frozen voice — not an account, not a subscription, nothing to log in to and nothing to renew.",
+      body: "Cloning is a connected, consented studio session, months before launch. What flies is a frozen voice. Not an account, not a subscription, nothing to log in to and nothing to renew.",
     },
     {
       title: "Deterministic mode",
@@ -550,13 +550,13 @@ export const NO_UPLINK = {
     },
     {
       title: "Where this is already real",
-      body: "Air-gapped is not a new requirement, and ElevenLabs is already building for it — on-premise and on-device models, aimed at edge and embedded hardware, with no audio leaving your infrastructure. A spacecraft is that same requirement at its limit. What does not exist yet is the rest of it: the whole loop running on radiation-tolerant compute, unattended, for seven years. That gap is real, and naming it is the only reason to believe the rest of this page.",
+      body: "Air-gapped is not a new requirement, and ElevenLabs is already building for it: on-premise and on-device models, aimed at edge and embedded hardware, with no audio leaving your infrastructure. A spacecraft is that same requirement at its limit. What does not exist yet is the rest of it: the whole loop running on radiation-tolerant compute, unattended, for seven years. That gap is real, and naming it is the only reason to believe the rest of this page.",
     },
   ],
   payoff: "You cannot call home. So home comes with you.",
   diagram: {
     title: "How E.L.S.A. works with no link to Earth",
-    desc: "Two channels, drawn to different scales. Inside the ship, a small closed loop in amber — hear, reason, speak — carrying the crew's conversation onboard, with no line leaving the hull. Separately, a single thin blue line runs the full width of the frame from Earth to the ship, labelled eighty minutes, carrying text only, and arriving in one direction.",
+    desc: "Two channels, drawn to different scales. Inside the ship, a small closed loop in amber labelled hear, reason and speak, carrying the crew's conversation onboard, with no line leaving the hull. Separately, a single thin blue line runs the full width of the frame from Earth to the ship, labelled eighty minutes, carrying text only, and arriving in one direction.",
     ship: "the ship",
     loop: "onboard loop",
     nodes: ["hear", "reason", "speak"],
@@ -573,7 +573,7 @@ export const CAPABILITIES = {
   eyebrow: "The stack",
   heading: "Six mission requirements. Six models that already ship.",
   intro:
-    "Nothing here is a roadmap request. Every capability this concept depends on is available today — which is the reason it is worth building rather than writing about.",
+    "Nothing here is a roadmap request. Every capability this concept depends on is available today, which is the reason it is worth building rather than writing about.",
   items: [
     {
       need: "Hear a crew member through helmet comms and fan noise, and know who spoke",
@@ -618,14 +618,14 @@ export const CLOSING = {
   heading: "Voice AI is sold as convenience. Space is the proof that it's infrastructure.",
   paragraphs: [
     "Most voice products are positioned as a faster way to do something we could already do. That framing undersells what ElevenLabs has built, because it measures the technology against interfaces that work. The interesting case is the one where nothing else works at all.",
-    "A pressurised glove. A committed pair of eyes. An eighty-minute silence where Mission Control used to be. Someone at 03:00, further from home than anyone in history, who needs to be told the truth in a voice that does not make it worse. In that room, voice is not the best interface — it is the only one, and its quality is a safety property.",
+    "A pressurised glove. A committed pair of eyes. An eighty-minute silence where Mission Control used to be. Someone at 03:00, further from home than anyone in history, who needs to be told the truth in a voice that does not make it worse. In that room, voice is not the best interface. It is the only one, and its quality is a safety property.",
     "Every capability that room requires already exists in your stack today: Flash for latency, v3 for certifiable delivery, Scribe for who-said-what, cloning for the voice of someone 1.44 billion kilometres away. E.L.S.A. is what those pieces look like pointed at the hardest environment humans operate in.",
   ],
   next: {
     heading: "What I would build next",
     items: [
       "A register-conformance test suite: given an alert class, assert that synthesised delivery falls inside a certified prosodic envelope. Prosody you can regression-test.",
-      "An offline-first voice pack format — enrolled family voices bundled, versioned and verified for vehicles with no reliable link.",
+      "An offline-first voice pack format: enrolled family voices bundled, versioned and verified for vehicles with no reliable link.",
       "Latency budgeting for the full hear-reason-speak loop under degraded compute, with graceful register fallback when the expressive model is unavailable.",
     ],
   },

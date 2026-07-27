@@ -1,6 +1,6 @@
 # E.L.S.A.
 
-**E.L.S.A. to Earth — The Human Voice From Home**
+**E.L.S.A. to Earth · The Human Voice From Home**
 
 A concept for the onboard voice of a crewed deep-space mission, and the case that space is where
 voice AI stops being convenient and becomes critical.
@@ -11,7 +11,7 @@ Built on ElevenLabs.
 
 ## The argument
 
-Most voice AI is positioned as convenience — a faster way to do something we could already do. That
+Most voice AI is positioned as convenience, a faster way to do something we could already do. That
 framing measures the technology against interfaces that work. The interesting case is the one where
 nothing else works at all.
 
@@ -29,14 +29,14 @@ like a person, and knows which register the moment calls for answers all four.
 
 ## Three use cases, three shipping models
 
-1. **Delivery as a safety parameter** — `eleven_v3`. The same eleven-word pressure warning delivered
+1. **Delivery as a safety parameter.** `eleven_v3`. The same eleven-word pressure warning delivered
    four ways. Only one is correct, and the reason is engineering: urgency that induces panic costs
    the crew the fine motor control the checklist needs. Audio tags make prosody *specifiable*, so it
    can be reviewed, tested and signed off.
-2. **A voice from home at a few hundred bytes** — `eleven_ttv_v3`. Enrol the voice once pre-launch
+2. **A voice from home at a few hundred bytes.** `eleven_ttv_v3`. Enrol the voice once pre-launch
    and it flies with the vehicle. A message then costs 251 bytes of text instead of ~400 KB of
-   streamed audio — roughly 1,600× less link budget for an identical result.
-3. **Presence at conversational latency** — `eleven_flash_v2_5` + `scribe_v2_realtime`. Below about a
+   streamed audio, roughly 1,600× less link budget for an identical result.
+3. **Presence at conversational latency.** `eleven_flash_v2_5` + `scribe_v2_realtime`. Below about a
    second, people stop addressing a system and start talking to someone.
 
 The full requirement-to-model map is in the *Stack* section of the site.
@@ -51,10 +51,10 @@ scribe_v2_realtime  →    onboard inference    →    eleven_flash_v2_5
 ~150 ms                  ~400 ms                   ~75 ms
 ```
 
-Total ≈ **0.8 s**, against **10,380 s** for the same exchange via Mission Control — about
+Total ≈ **0.8 s**, against **10,380 s** for the same exchange via Mission Control, about
 **13,000× faster**. That ratio is the entire argument for putting the voice on the vehicle.
 
-Two of those three stages ship today. The middle one — reasoning onboard, with no link home — is
+Two of those three stages ship today. The middle one, reasoning onboard with no link home, is
 the open problem, and the site says so rather than implying otherwise. The live demo on the site
 does *not* run this loop: it is an ElevenAgents agent over WebRTC (Gemini 2.5 Flash for reasoning,
 `eleven_v3_conversational` for voice, expressive mode on by default), reaching a data centre like
@@ -83,10 +83,10 @@ Both exist so the site is **complete and shippable before its dependencies are**
 Every voice surface calls one hook, [`useElsaVoice`](src/lib/use-elsa-voice.ts), which calls one
 route, [`/api/speak`](src/app/api/speak/route.ts).
 
-- **With credentials** — the route streams MP3 from ElevenLabs. Playback position drives the
+- **With credentials.** The route streams MP3 from ElevenLabs. Playback position drives the
   word-by-word transcript reveal, and a Web Audio `AnalyserNode` drives the waveform from the real
   voice.
-- **Without credentials** — the route returns `503 { configured: false }`. The hook treats that as a
+- **Without credentials.** The route returns `503 { configured: false }`. The hook treats that as a
   designed path, not an error: it paces playback from the word count at 150 wpm and synthesises a
   speech-shaped amplitude envelope. Every reveal, orb and progress bar behaves exactly as it will
   with audio, and a quiet note explains that no voice is connected.
@@ -110,12 +110,12 @@ detects which is present. Depths, focal points and alt text live in
 
 `public/scenes/01-cockpit.png` is supplied and is the **style reference** for every other scene.
 
-**The rim-light rule — non-negotiable.** Interiors and crew are lit from exactly two directions:
+**The rim-light rule, non-negotiable.** Interiors and crew are lit from exactly two directions:
 warm amber `#FFB067` from E.L.S.A.'s console, cool blue `#6E9BD8` from the window. Amber light is
-*always* her; nothing else in any frame is ever amber. The palette carries the argument — a warm
+*always* her; nothing else in any frame is ever amber. The palette carries the argument: a warm
 voice inside a cold vacuum, stated in hex.
 
-E.L.S.A. is never depicted. No face, no avatar, no character render — she is light and sound only. A
+E.L.S.A. is never depicted. No face, no avatar, no character render. She is light and sound only. A
 voice-first argument gets weaker the moment you give it a screen presence.
 
 Remaining scenes, in priority order:
@@ -135,7 +135,7 @@ Deliver at ≥ 2560 px wide, WebP, silhouette-forward. Match the cover's grain a
 - `/` prerenders as **static**. The cover is statically imported so Next derives dimensions,
   generates a blur placeholder, and preloads it as the LCP element.
 - Scroll reveals are **CSS only** (`animation-timeline: view()`). Content is visible by default and
-  the animation is purely additive — a browser without support, or a failed script, still shows a
+  the animation is purely additive: a browser without support, or a failed script, still shows a
   complete page. An earlier JS version set `opacity: 0` and restored it from an intersection
   observer, which meant a broken script blanked everything below the fold.
 - `prefers-reduced-motion` disables the cinematic intro, parallax, starfield twinkle, orb breathing
@@ -143,13 +143,13 @@ Deliver at ≥ 2560 px wide, WebP, silhouette-forward. Match the cover's grain a
 - Verified with no horizontal overflow at 390 / 768 / 1440 / 2560 px.
 - Cover art is 1672 × 941 (16:9, ~1.6 MP). At 16:9 the hero fills the viewport with under 5%
   horizontal crop at 1440 px and effectively none at 1920 px and above. It still upscales on retina
-  displays — a grain overlay masks the softness, and re-rendering at ≥ 2560 px wide would be the
+  displays. A grain overlay masks the softness, and re-rendering at ≥ 2560 px wide would be the
   single biggest remaining visual improvement.
 
 ## Before deploying
 
-1. Fill in `author`, `email`, `github` and `url` in [`src/lib/site.ts`](src/lib/site.ts) — they are
-   placeholders.
+1. Check `author`, `email`, `github` and `url` in [`src/lib/site.ts`](src/lib/site.ts). `url`
+   drives `metadataBase` and the OpenGraph URL, so it must match the deployment.
 2. Optionally add `ELEVENLABS_API_KEY` and `ELEVENLABS_VOICE_ID` (see `.env.example`) to turn on
    audio.
 3. `npm run build`, then deploy. No server state, no database.

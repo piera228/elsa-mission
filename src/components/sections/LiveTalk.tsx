@@ -77,7 +77,7 @@ function LiveTalkInner() {
       if (!res.ok) {
         setError(
           res.status === 503
-            ? "Live voice isn't connected yet — add your ElevenLabs key."
+            ? "Live voice isn't connected yet. Add your ElevenLabs key."
             : "Couldn't start the call. Try again.",
         );
         return;
@@ -114,7 +114,7 @@ function LiveTalkInner() {
             </button>
           </div>
           <span className="tel !text-elsa">
-            {isSpeaking ? "E.L.S.A. speaking" : "Listening — go ahead"}
+            {isSpeaking ? "E.L.S.A. speaking" : "Listening, go ahead"}
           </span>
         </div>
       ) : (

@@ -162,7 +162,7 @@ export function TalkToElsa() {
                 switching questions. */}
             <div className="relative mt-6">
               <div aria-hidden className="invisible">
-                <p className="tel mb-3">Commander — {LONGEST_PROMPT}</p>
+                <p className="tel mb-3">Commander: {LONGEST_PROMPT}</p>
                 <p className="spoken text-base leading-relaxed">{LONGEST_REPLY}</p>
                 <p className="tel mt-5">Stop</p>
               </div>
@@ -176,7 +176,7 @@ export function TalkToElsa() {
                     exit={reduce ? { opacity: 1 } : { opacity: 0, y: -8 }}
                     transition={{ duration: 0.34 }}
                   >
-                    <p className="tel mb-3 !text-telemetry">Commander — {active.prompt}</p>
+                    <p className="tel mb-3 !text-telemetry">Commander: {active.prompt}</p>
                     {/* Always in the layout so the container height stays fixed;
                         just fades in when she answers, so there's no jump when the
                         question hands off to the answer. */}

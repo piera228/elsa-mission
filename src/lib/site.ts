@@ -6,7 +6,7 @@ export const SITE = {
   expansion: "Eleven Labs Stellar Assistant",
   slogan: "The Human Voice From Home",
   description:
-    "E.L.S.A. — a concept for the onboard voice of a crewed deep-space mission, and the case that space is where voice AI stops being convenient and becomes critical. Built on ElevenLabs.",
+    "E.L.S.A. is a concept for the onboard voice of a crewed deep-space mission, and the case that space is where voice AI stops being convenient and becomes critical. Built on ElevenLabs.",
 
   author: "Piera Malatrassi",
   linkedin: "https://www.linkedin.com/in/piera-malatrassi/",

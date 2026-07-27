@@ -126,7 +126,7 @@ export const SCENES: Record<SceneSlug, SceneSpec> = {
     slug: "06-earth-return",
     // Must match scene 01 exactly — the bookend depends on the same framing.
     aspect: "1672 / 941",
-    alt: "The same flight deck window as the opening image, from the same seats — but ahead now is Earth, a small blue and white disc, growing.",
+    alt: "The same flight deck window as the opening image, from the same seats, but ahead now is Earth, a small blue and white disc, growing.",
     focalX: 50,
     depths: { bg: 0.05, mid: 0.02, fg: 0 },
     brief:

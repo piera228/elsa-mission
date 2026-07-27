@@ -84,7 +84,7 @@ export function RegisterSwitcher() {
           onClick={() => (isSpeaking || isLoading ? stop() : play(selected))}
           className="tel cursor-pointer rounded-full border border-elsa/50 px-4 py-2 transition-colors hover:border-elsa hover:text-elsa"
         >
-          {isLoading ? "Synthesising" : isSpeaking ? "Stop" : `Hear it — ${active.name}`}
+          {isLoading ? "Synthesising" : isSpeaking ? "Stop" : `Hear it: ${active.name}`}
         </button>
       </div>
 
@@ -103,7 +103,7 @@ export function RegisterSwitcher() {
 
       {configured === false ? (
         <p className="mt-5 font-mono text-[11px] leading-relaxed text-faint">
-          Silent mode — the four registers are being paced identically, so the difference is not
+          Silent mode. The four registers are being paced identically, so the difference is not
           audible yet. Connected to eleven_v3, each one carries its own audio tag and the contrast is
           the point of this section.
         </p>

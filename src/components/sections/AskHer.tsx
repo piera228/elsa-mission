@@ -48,7 +48,7 @@ export function AskHer() {
                 exit={reduce ? { opacity: 1 } : { opacity: 0, y: -8 }}
                 transition={{ duration: 0.34 }}
               >
-                <p className="tel mb-4 !text-telemetry">Commander — {active.prompt}</p>
+                <p className="tel mb-4 !text-telemetry">Commander: {active.prompt}</p>
                 <p className="spoken text-lg leading-relaxed sm:text-xl md:text-[1.4rem]">
                   {words.map((word, i) => (
                     <span
@@ -109,7 +109,7 @@ export function AskHer() {
 
       {configured === false ? (
         <p className="mt-5 font-mono text-[11px] leading-relaxed text-faint">
-          Silent mode — no ElevenLabs voice is connected yet, so her replies are paced rather than
+          Silent mode. No ElevenLabs voice is connected yet, so her replies are paced rather than
           spoken. The transcript, the orb and the timing are all real; only the audio is missing.
         </p>
       ) : null}
