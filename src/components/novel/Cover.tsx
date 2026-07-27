@@ -144,7 +144,10 @@ function Titles({ className }: { className?: string }) {
       </h1>
 
       {/* Contrast on the cover is set against the brightest part of the art, not
-          against the void, so these run lighter than the same roles elsewhere. */}
+          against the void, so these run lighter than the same roles elsewhere.
+          The intro below is the exception: it sits lowest in the stack, over the
+          console cluster rather than the scrim's darkest point, and at 75% it
+          was genuinely hard to read. It runs at full paper. */}
       <p className="tel mt-3 !tracking-[0.42em] !text-paper/70">{COVER.toEarth}</p>
 
       <p className="mt-5 font-display text-2xl leading-tight text-elsa-hot sm:text-3xl lg:text-[2.6rem]">
@@ -155,7 +158,7 @@ function Titles({ className }: { className?: string }) {
 
       <p className="tel mt-6 !tracking-[0.26em] !text-elsa">{COVER.expansion}</p>
 
-      <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-relaxed text-paper/75 sm:text-base">
+      <p className="mt-6 max-w-[52ch] text-[0.9375rem] leading-relaxed text-paper sm:text-base">
         {COVER.intro}
       </p>
     </div>

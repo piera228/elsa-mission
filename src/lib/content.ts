@@ -472,7 +472,7 @@ export const POWERED_BY = {
   capabilities: [
     {
       title: "Reasons in real time",
-      body: "A Gemini 2.5 Flash model interprets what the crew says and decides how to answer, on the fly.",
+      body: "Gemini 2.5 Flash model interprets what the crew says and decides how to answer, on the fly.",
       model: "Gemini 2.5 Flash",
     },
     {

@@ -16,6 +16,10 @@ const TARGET = THE_SILENCE.ctaTarget;
  * keyboard activation, middle-click and the no-JavaScript path all behave, and
  * there is nothing to keep in sync if the hand-off ever changes.
  *
+ * Bottom-right rather than bottom-left: on the left it landed on the first
+ * column of every card grid on the page, which is where the eye starts a line.
+ * On the right it sits in the gutter beside the ragged edge of the text.
+ *
  * It appears only when it can help, which is the whole point of it:
  *
  *  - Not over the cover. It waits until the reader is a screen down, so the
@@ -60,7 +64,7 @@ export function TalkFab() {
           animate={{ opacity: 1, y: 0 }}
           exit={reduce ? { opacity: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="group fixed bottom-5 left-5 z-50 inline-flex items-center gap-2.5 rounded-sm border border-elsa/45 bg-void/85 px-4 py-3 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-elsa shadow-[0_8px_30px_-12px_rgba(0,0,0,0.9)] backdrop-blur-sm transition-colors duration-300 hover:border-elsa hover:bg-elsa/[0.12] focus-visible:border-elsa focus-visible:outline-none sm:bottom-8 sm:left-8 sm:px-5 sm:py-3.5 sm:text-xs"
+          className="group fixed bottom-5 right-5 z-50 inline-flex items-center gap-2.5 rounded-sm border border-elsa/45 bg-void/85 px-4 py-3 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-elsa shadow-[0_8px_30px_-12px_rgba(0,0,0,0.9)] backdrop-blur-sm transition-colors duration-300 hover:border-elsa hover:bg-elsa/[0.12] focus-visible:border-elsa focus-visible:outline-none sm:bottom-8 sm:right-8 sm:px-5 sm:py-3.5 sm:text-xs"
         >
           <span aria-hidden className="signal-pulse block h-2 w-2 shrink-0 rounded-full bg-elsa" />
           <span>{TALK.heading}</span>
