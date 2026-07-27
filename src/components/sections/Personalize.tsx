@@ -54,7 +54,7 @@ export function Personalize() {
   };
 
   return (
-    <Section id="personalize" className="!pt-0 !pb-4 sm:!pb-6">
+    <Section id="personalize" className="!pt-0">
       <SectionTitle eyebrow={PERSONALIZE.eyebrow} heading={PERSONALIZE.heading} />
 
       {/*

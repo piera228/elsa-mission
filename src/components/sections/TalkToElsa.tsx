@@ -91,7 +91,7 @@ export function TalkToElsa() {
   if (!open) return null;
 
   return (
-    <Section id="use-case-talk" className="!pb-4 sm:!pb-6">
+    <Section id="use-case-talk" className="!pt-0">
       {/* Amber power-surge behind the content. */}
       {!reduce ? (
         <motion.div

@@ -19,7 +19,18 @@ export function Reveal({
   return <div className={`reveal ${className ?? ""}`}>{children}</div>;
 }
 
-/** Section shell. Consistent rhythm and width for every section. */
+/**
+ * Section shell. Consistent rhythm and width for every section.
+ *
+ * The vertical rhythm has one rule, and it is easy to break by accident: every
+ * section after the first sets `!pt-0`, so the gap a reader sees between two
+ * sections is ONE section's bottom padding, not two stacked. Override `pb` and
+ * you are not trimming that section, you are deleting the gap after it.
+ *
+ * Highlights, Personalize and TalkToElsa each carried `!pb-4 sm:!pb-6`, which
+ * collapsed three of the six gaps on the page to about 20px while the rest ran
+ * at 96–144px. Add `!pt-0` to a new section; leave the bottom alone.
+ */
 export function Section({
   id,
   children,
