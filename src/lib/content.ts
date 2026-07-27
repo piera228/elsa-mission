@@ -343,7 +343,7 @@ export const PERSONALIZE = {
   eyebrow: "Chosen before launch",
   heading: "Whose voice answers is up to the crew.",
   intro:
-    "E.L.S.A. isn't a stock voice. Before the mission begins, each crew member chooses who they'll hear for the years ahead — a single recording that flies with the vehicle and never leaves their side.",
+    "E.L.S.A. isn't a stock voice. Before the system goes live, the operator chooses who they'll hear — a single recording that stays with them for as long as the mission lasts. Because trust isn't built in real time. It is carried in from before.",
   options: [
     {
       title: "Someone you love",
@@ -395,6 +395,24 @@ export const BEYOND = {
       body: "A trusted, human voice for the millions a screen or keyboard was never built to serve.",
     },
   ],
+} as const;
+
+/* ================================================================== *
+ * DESIGNED FOR — who the concept is aimed at
+ * ------------------------------------------------------------------
+ * A statement of intended audience, never of endorsement. The wording
+ * and the disclaimer are load-bearing: no agency has seen, approved or
+ * adopted E.L.S.A., and nothing on this page may imply otherwise.
+ * ================================================================== */
+export const DESIGNED_FOR = {
+  eyebrow: "Who this is for",
+  heading: "Designed for the agencies flying crews beyond Earth.",
+  agencies: [
+    { name: "NASA", full: "National Aeronautics and Space Administration", file: "nasa.png" },
+    { name: "ESA", full: "European Space Agency", file: "esa.png" },
+  ],
+  disclaimer:
+    "Concept project. Not affiliated with, endorsed by, or in any way connected to the organisations shown.",
 } as const;
 
 /* ================================================================== *
