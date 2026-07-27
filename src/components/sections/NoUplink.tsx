@@ -54,8 +54,9 @@ export function NoUplink() {
       <Payoff>{NO_UPLINK.payoff}</Payoff>
 
       <Reveal className="mt-14 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
-        <p>{NO_UPLINK.trust}</p>
-        <p>{NO_UPLINK.real}</p>
+        {NO_UPLINK.body.map((para) => (
+          <p key={para.slice(0, 24)}>{para}</p>
+        ))}
       </Reveal>
     </Section>
   );

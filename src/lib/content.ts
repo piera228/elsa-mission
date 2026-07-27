@@ -578,10 +578,14 @@ export const POWERED_BY = {
  * tokens before receiving any meaning. They are named by location now,
  * because location is the entire point.
  *
- * The product paragraph names releases and a date on purpose. It read
- * "is already building for it", which sounds like a hedge covering an
- * absence of research. Every claim in it is checkable, and the section
- * is only persuasive if a reader who checks finds it exact.
+ * The product paragraphs name releases and a date on purpose. Every
+ * claim in them is checkable, and the section is only persuasive if a
+ * reader who checks finds it exact.
+ *
+ * Gone with the previous copy: the deterministic-mode paragraph, and
+ * with it "Generation is for company. It is never for an instruction
+ * that can kill someone." That was the only statement anywhere on the
+ * page that E.L.S.A. does not improvise safety-critical instructions.
  * ================================================================== */
 export const NO_UPLINK = {
   eyebrow: "Working without a link",
@@ -589,11 +593,18 @@ export const NO_UPLINK = {
   intro:
     "Light takes eighty minutes to reach Earth from here. There is nothing faster to send. Ask Mission Control a question and the answer arrives two hours and forty minutes later: eighty minutes out, eighty minutes back, and only if someone replies the instant it lands. Every voice assistant you have used answers over a network. At Saturn there is no network to answer over.",
   payoff: "You cannot call home. So home comes with you.",
-  /** The voice is enrolled on Earth, and it does not improvise instructions. */
-  trust:
-    "The voice itself is made on Earth. Cloning is a connected, consented studio session, months before launch; what flies is a frozen voice, not an account, not a subscription, nothing to log in to and nothing to renew. And for anything life-critical, E.L.S.A. does not generate at all. It reads from a signed checklist loaded before launch, word for word, and says which one it is reading. Generation is for company. It is never for an instruction that can kill someone.",
-  /** Verified against elevenlabs.io/blog/enterprise-voice-ai-deployed-locally. */
-  real: "None of this is a new requirement. On 9 April 2026 ElevenLabs announced On-Premise and On-Device deployment, both in early access, with initial releases expected in the first half of 2026. On-Premise runs on your own servers, in your own data centre, on confidential computing infrastructure with GPUs, and supports air-gapped deployment where isolation is required. On-Device runs directly on the hardware itself, built for offline inference on constrained compute, and the use case ElevenLabs names is automotive: manufacturers embedding voice into vehicles and wearables. Both are purpose-built models, not cloud models packaged for local execution.",
+  /**
+   * Verified against elevenlabs.io/blog/enterprise-voice-ai-deployed-locally,
+   * dated 9 Apr 2026. Supplied copy said ElevenLabs "now supports" these; they
+   * are early access with releases only expected in H1 2026, so the paragraph
+   * states the announcement and the status instead. The whole point of this
+   * section is that a reader who checks finds it exact.
+   */
+  body: [
+    "None of this requires speculative technology. The foundation already exists. On 9 April 2026 ElevenLabs announced on-premise and on-device deployment, both in early access, with initial releases expected in the first half of 2026.",
+    "On-premise runs speech models on your own servers, on confidential computing infrastructure with GPUs, and supports air-gapped deployment where isolation is required. On-device runs directly on the hardware itself, built for offline inference on constrained compute; the use case ElevenLabs names is automotive, manufacturers embedding voice into vehicles and wearables. Both are purpose-built models, not cloud models packaged for local execution.",
+    "Rather than depending on a cloud connection, the system can operate locally, isolated from external networks: the same architectural approach required for a spacecraft operating months or years from Earth.",
+  ],
   diagram: {
     title: "How E.L.S.A. works with no link to Earth",
     desc: "Inside the ship, a closed amber loop carries the crew's conversation: hear, then reason, then speak. No line leaves it. Reaching the ship from far off to the right is a single thin blue line from Earth, marked eighty minutes, and it ends on the speak node itself, entering the loop at exactly that point. What arrives over it is words, which the ship then says aloud in a voice it already carries.",
