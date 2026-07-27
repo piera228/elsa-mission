@@ -518,7 +518,9 @@ export const POWERED_BY = {
  * this is the speed of light, it is a floor, and no amount of money
  * moves it. The intro then spends its first two sentences on that
  * single point, because every other claim in the section depends on
- * the reader accepting it.
+ * the reader accepting it. It says it from the ship's point of view —
+ * "from here" — so the reader is standing at Saturn rather than
+ * reading a fact about it.
  *
  * Numbers here are physical only: MISSION.owltMinutes one way, twice
  * that for a question and an answer.
@@ -538,7 +540,7 @@ export const NO_UPLINK = {
   eyebrow: "Working without a link",
   heading: "From Saturn, Earth is eighty light-minutes away. E.L.S.A. is not.",
   intro:
-    "Eighty minutes is not a network problem. It is how long light itself takes to cross from Saturn to Earth, and nothing goes faster. Ask Mission Control a question and the answer arrives two hours and forty minutes later: eighty minutes out, eighty minutes back, and only if someone replies the instant it lands. Every voice assistant you have used answers over a network. At Saturn there is no network to answer over.",
+    "Light takes eighty minutes to reach Earth from here. There is nothing faster to send. Ask Mission Control a question and the answer arrives two hours and forty minutes later: eighty minutes out, eighty minutes back, and only if someone replies the instant it lands. Every voice assistant you have used answers over a network. At Saturn there is no network to answer over.",
   payoff: "You cannot call home. So home comes with you.",
   /** The voice is enrolled on Earth, and it does not improvise instructions. */
   trust:
