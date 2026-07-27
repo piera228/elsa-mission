@@ -20,12 +20,6 @@ import { Section, SectionTitle, Reveal } from "@/components/novel/Chrome";
 export function Highlights() {
   return (
     <Section id="highlights" className="!pt-0 !pb-4 sm:!pb-6">
-      <Reveal className="mb-10 sm:mb-14">
-        <p className="font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
-          {HIGHLIGHTS.lead}
-        </p>
-      </Reveal>
-
       <SectionTitle eyebrow={HIGHLIGHTS.eyebrow} heading={HIGHLIGHTS.heading} />
 
       <div className="grid gap-px overflow-hidden rounded-sm border border-seam bg-seam sm:grid-cols-2 lg:grid-cols-3">

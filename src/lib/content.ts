@@ -316,7 +316,6 @@ export const TALK = {
  * ================================================================== */
 export const HIGHLIGHTS = {
   eyebrow: "Mission requirements",
-  lead: `The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew ${MISSION.distanceKm} from Earth.`,
   heading: "What the mission would demand of a voice.",
   /** Marker labels. Rendered against a filled / hollow telemetry dot. */
   statusToday: "Ships today",
