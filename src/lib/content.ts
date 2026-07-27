@@ -354,24 +354,92 @@ export const HIGHLIGHTS = {
 } as const;
 
 /* ================================================================== *
- * PERSONALIZE — the voice is chosen, and cloned, before the mission
+ * PERSONALIZE — the voice is chosen, and consented to, before launch
+ * ------------------------------------------------------------------
+ * This section is not about choosing a voice. It is about trust having
+ * to exist before the ship leaves. Under stress people do not follow
+ * the voice that sounds best, they follow the voice they already know,
+ * and that relationship is built on Earth years earlier. The mission
+ * does not create it. It carries it.
+ *
+ * It used to be two cards, "Someone you love" and "A trainer you
+ * trust" — categories of customer described in poetic language. It is
+ * a pre-flight manifest now: cold bureaucratic framing wrapped around
+ * the one irreplaceable thing on the form. The contrast is the point.
+ *
+ * Headline candidates, kept for the record:
+ *   "Trust is cargo, not signal."
+ *   "The voice they will need is chosen years before they need it."
+ * The chosen one states the constraint plainly, which is the register
+ * of the document it sits above.
+ *
+ * Nothing in this section may use product language. The sections above
+ * have already proved the engineering; this one is allowed to be
+ * purely human.
+ *
+ * Two things that look like detail but are load-bearing:
+ *
+ *   Every name belongs to someone who STAYED ON EARTH. Commander Nate
+ *   is at Mission Control, not aboard. If a voice belonged to someone
+ *   on the ship, nothing was carried and nothing was left behind, and
+ *   the premise collapses.
+ *
+ *   The fourth entry is blank on purpose. Every other line was filled
+ *   in on Earth; this is the one nobody else can fill in, and leaving
+ *   it open hands the question to the reader rather than answering it.
+ *   It is not a control. It must never gain a tick, a button, or a
+ *   hover state.
  * ================================================================== */
 export const PERSONALIZE = {
   eyebrow: "Chosen before launch",
-  heading: "Whose voice answers is up to the crew.",
-  intro:
-    "E.L.S.A. isn't a stock voice. Before the system goes live, the operator chooses who they'll hear: a single recording that stays with them for as long as the mission lasts. Because trust isn't built in real time. It is carried in from before.",
-  options: [
-    {
-      title: "Someone you love",
-      body: "A partner, a parent, a child. The voice that means home, carried light-years from it.",
-    },
-    {
-      title: "A trainer you trust",
-      body: "The instructor who ran you through every drill. A voice you already follow without a second thought.",
-    },
+  heading: "Some things have to be aboard before the hatch closes.",
+  body: [
+    "Under pressure, people do not follow the voice that sounds best. They follow the voice they already know. That is why it is chosen on Earth, years before the ship leaves: not because choice is a nice thing to offer, but because familiarity is what a person falls back on when there is nothing else to fall back on.",
+    "Someone has to agree to it. A person sits in a room on Earth for an afternoon and says yes to being heard, every day, by someone who will be further from home than anyone has ever been. Once the ship leaves, that decision cannot be revised.",
   ],
-  payoff: "Familiar the whole way out, and the whole way home.",
+  manifest: {
+    label: "Crew voice manifest · pre-flight",
+    fields: {
+      name: "Name",
+      relationship: "Relationship",
+      recorded: "Recorded",
+      authorized: "Authorized",
+      status: "Status",
+    },
+    /** Names are how the crew actually says them, not how a form would. */
+    entries: [
+      {
+        name: "Mom",
+        relationship: "mother",
+        recorded: "14 Mar · Houston",
+        authorized: "Consent recorded",
+        status: "Stored onboard",
+      },
+      {
+        name: "Commander Nate",
+        relationship: "commanding officer, Mission Control",
+        recorded: "02 Apr · Houston",
+        authorized: "Consent recorded",
+        status: "Stored onboard",
+      },
+      {
+        name: "Tess",
+        relationship: "sister",
+        recorded: "27 Feb · Cologne",
+        authorized: "Consent recorded",
+        status: "Stored onboard",
+      },
+      {
+        name: "—",
+        relationship: "—",
+        recorded: "—",
+        authorized: "—",
+        status: "Awaiting selection",
+        open: true,
+      },
+    ],
+  },
+  payoff: "Every name on this list belongs to someone who stayed behind.",
 } as const;
 
 /* ================================================================== *
