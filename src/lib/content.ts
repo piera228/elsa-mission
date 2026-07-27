@@ -403,6 +403,11 @@ export const PERSONALIZE = {
     "Someone has to agree to it. A person sits in a room on Earth for an afternoon and says yes to being heard, every day, by someone who will be further from home than anyone has ever been. Once the ship leaves, that decision cannot be revised.",
   ],
   manifest: {
+    /**
+     * Supplied as "examples of what who that voice could be"; the "what" is
+     * taken as a slip and dropped.
+     */
+    intro: "Here are some examples of who that voice could be.",
     label: "Crew voice manifest · pre-flight",
     /** Names as the crew actually says them, not as a form would record them. */
     entries: [
@@ -429,10 +434,6 @@ export const PERSONALIZE = {
       },
     ],
   },
-  closing: [
-    "Three voices. Every one of them chosen years before anyone needed it.",
-    "Once the ship leaves, this cannot be revised.",
-  ],
 } as const;
 
 /* ================================================================== *

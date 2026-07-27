@@ -58,10 +58,16 @@ export function Personalize() {
       <SectionTitle eyebrow={PERSONALIZE.eyebrow} heading={PERSONALIZE.heading} />
 
       {/* No measure cap: body copy runs the full container width site-wide. */}
-      <Reveal className="mb-14 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:mb-16 sm:text-lg">
+      <Reveal className="mb-12 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:mb-14 sm:text-lg">
         {PERSONALIZE.body.map((para) => (
           <p key={para.slice(0, 24)}>{para}</p>
         ))}
+      </Reveal>
+
+      {/* Hands off to the manifest, so it sits with it rather than with the
+          paragraphs above. */}
+      <Reveal className="mb-6">
+        <p className="text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">{M.intro}</p>
       </Reveal>
 
       <Reveal>
@@ -132,16 +138,6 @@ export function Personalize() {
           );
         })}
       </div>
-
-      {/* Two lines, the second stepped down, with air around both. */}
-      <Reveal className="mt-16 sm:mt-20">
-        <p className="font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
-          {PERSONALIZE.closing[0]}
-        </p>
-        <p className="mt-4 text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
-          {PERSONALIZE.closing[1]}
-        </p>
-      </Reveal>
     </Section>
   );
 }
