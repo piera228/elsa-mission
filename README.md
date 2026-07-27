@@ -78,17 +78,33 @@ model, voice and system prompt all live in the ElevenLabs dashboard. Copy on the
 nothing in this repo enforces it, and nothing will break if it changes. If you reconfigure the
 agent, update the copy by hand.
 
-### `/api/speak`
+This is the only ElevenLabs call the site makes at request time.
+
+### `/api/speak`: present, currently unreachable
 
 Server-side call to `/v1/text-to-speech/{voice}/stream`, returning `audio/mpeg`. Six registers
 (calm, steady, warm, candid, urgent, clinical) carry their own stability, similarity and style
-settings, so the same sentence can be delivered four different ways. `eleven_flash_v2_5` by
-default; `eleven_v3` when the caller asks for expressive delivery, since only v3 honours inline
-audio tags.
+settings. `eleven_flash_v2_5` by default; `eleven_v3` when the caller asks for expressive delivery,
+since only v3 honours inline audio tags.
+
+**Nothing on the current page calls it.** It has three callers: `AskHer` and `RegisterSwitcher` are
+dormant, and `TalkToElsa` only reaches it in the branch taken when an exchange has no recording,
+and all three exchanges have one. `ELEVENLABS_VOICE_ID` is also unset, so it would return 503
+regardless.
+
+### All other audio is pre-rendered
+
+The scripted exchanges and the three manifest recordings were generated in ElevenLabs ahead of time
+and downloaded, then served as static files from `public/voice/`. Nothing is synthesised at request
+time. That is why a polished take always lands, and why the page costs nothing until you press
+play.
 
 ## Two deliberate design decisions
 
 ### 1. Voice degrades instead of breaking
+
+Currently unexercised, since the page plays pre-rendered files rather than synthesising, but the
+mechanism is intact and is what the dormant sections depend on.
 
 Every voice surface calls one hook, [`useElsaVoice`](src/lib/use-elsa-voice.ts), never the route
 directly.

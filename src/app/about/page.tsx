@@ -100,27 +100,31 @@ export default function AboutPage() {
 
           <Block title="The API, and what actually runs">
             <p>
+              There are two API routes, and only one of them runs while you are on the page.
+            </p>
+            <p>
               <Mono>/api/conversation-token</Mono> mints a short-lived token from{" "}
-              <Mono>/v1/convai/conversation/token</Mono> and hands it to the browser. The API key
+              <Mono>/v1/convai/conversation/token</Mono> and hands it to the browser, so the API key
               never reaches the client. &quot;Talk live&quot; then opens a real two-way conversation
               over WebRTC against an ElevenAgents agent: <Mono>Gemini 2.5 Flash</Mono> reasons about
               what you say, <Mono>eleven_v3_conversational</Mono> speaks the reply, and expressive
-              mode, on by default with that voice, tunes the delivery. You speak; E.L.S.A. answers,
-              live.
+              mode, on by default with that voice, tunes the delivery. That is the only ElevenLabs
+              call this site makes at request time.
             </p>
             <p>
-              <Mono>/api/speak</Mono> is the second path: a server-side call to{" "}
-              <Mono>/v1/text-to-speech</Mono> that streams MP3 back, with per-register voice
-              settings so the same sentence can be calm, urgent or warm. Every voice surface calls
-              one hook rather than the route directly, and that hook is written so the absence of a
-              key is a designed state, not an error. Without credentials it paces the reply from the
-              word count and synthesises a speech-shaped envelope, so the transcript, the waveform
-              and the timing all still behave. No component ever branches on whether a key exists.
+              Everything else you can hear is a file. The scripted exchanges in the console, and the
+              three recordings in the crew voice manifest, were generated in ElevenLabs ahead of
+              time and downloaded, then served as static audio. Nothing is synthesised while you
+              are here, which is why a polished take always lands and why the page costs nothing to
+              load until you press play.
             </p>
             <p>
-              The scripted exchanges and the three recordings in the voice manifest are pre-rendered
-              audio files served from the site, so a polished take always lands and the page costs
-              nothing to load until you press play.
+              <Mono>/api/speak</Mono> is the second route and is currently unused: a server-side
+              call to <Mono>/v1/text-to-speech</Mono> with per-register voice settings, sitting
+              behind a hook written so that a missing key is a designed state rather than an error.
+              Nothing on the page reaches it, because every exchange has a recording and the
+              fallback that would call it never runs. It is there for the sections that are built
+              but not currently on the site.
             </p>
           </Block>
 
