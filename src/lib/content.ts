@@ -354,92 +354,77 @@ export const HIGHLIGHTS = {
 } as const;
 
 /* ================================================================== *
- * PERSONALIZE — the voice is chosen, and consented to, before launch
+ * PERSONALIZE — trust is packed, not transmitted
  * ------------------------------------------------------------------
- * This section is not about choosing a voice. It is about trust having
- * to exist before the ship leaves. Under stress people do not follow
- * the voice that sounds best, they follow the voice they already know,
- * and that relationship is built on Earth years earlier. The mission
+ * Not about choosing a voice. About trust having to exist before the
+ * ship leaves: under stress people follow the voice they already know,
+ * and that relationship was built on Earth years earlier. The mission
  * does not create it. It carries it.
  *
- * It used to be two cards, "Someone you love" and "A trainer you
- * trust" — categories of customer described in poetic language. It is
- * a pre-flight manifest now: cold bureaucratic framing wrapped around
- * the one irreplaceable thing on the form. The contrast is the point.
+ * The heading is fixed and has NO full stop, unlike every other heading
+ * on the site. That is deliberate and supplied verbatim. Do not
+ * "correct" it.
  *
- * Headline candidates, kept for the record:
- *   "Trust is cargo, not signal."
- *   "The voice they will need is chosen years before they need it."
- * The chosen one states the constraint plainly, which is the register
- * of the document it sits above.
+ * Nothing here may use product language. The sections above already
+ * prove the engineering; this one is allowed to be purely human.
  *
- * Nothing in this section may use product language. The sections above
- * have already proved the engineering; this one is allowed to be
- * purely human.
+ * THE THREE LINES ARE THE SECTION. Mom and Tess are both family, so
+ * their lines have to carry different weight or the two cards read as
+ * the same card twice:
  *
- * Two things that look like detail but are load-bearing:
+ *   Mom   steady. The voice you fall back on. Weight, no sentiment.
+ *   Nate  authority. The voice you obey before you have decided to.
+ *   Tess  light. Who you want when you do not need looking after.
  *
- *   Every name belongs to someone who STAYED ON EARTH. Commander Nate
- *   is at Mission Control, not aboard. If a voice belonged to someone
- *   on the ship, nothing was carried and nothing was left behind, and
- *   the premise collapses.
+ * Every line is an observation about how the person talks, never about
+ * how it makes anyone feel. A thing she says beats a feeling she
+ * causes. All are under twelve words; if one starts reaching, cut it
+ * back rather than explaining it.
  *
- *   The fourth entry is blank on purpose. Every other line was filled
- *   in on Earth; this is the one nobody else can fill in, and leaving
- *   it open hands the question to the reader rather than answering it.
- *   It is not a control. It must never gain a tick, a button, or a
- *   hover state.
+ * Nate stayed on Earth, which is why his relationship field names
+ * Mission Control. If a voice belonged to someone aboard, nothing was
+ * carried and nothing was left behind, and the section collapses.
+ *
+ * Consent is on the face of every card, not a footnote, because
+ * somebody sat in a room and said yes. That is the moral weight of the
+ * whole idea.
  * ================================================================== */
 export const PERSONALIZE = {
   eyebrow: "Chosen before launch",
-  heading: "Some things have to be aboard before the hatch closes.",
+  /** Verbatim, and intentionally without a full stop. */
+  heading: "Trust has to exist before launch",
   body: [
     "Under pressure, people do not follow the voice that sounds best. They follow the voice they already know. That is why it is chosen on Earth, years before the ship leaves: not because choice is a nice thing to offer, but because familiarity is what a person falls back on when there is nothing else to fall back on.",
     "Someone has to agree to it. A person sits in a room on Earth for an afternoon and says yes to being heard, every day, by someone who will be further from home than anyone has ever been. Once the ship leaves, that decision cannot be revised.",
   ],
   manifest: {
     label: "Crew voice manifest · pre-flight",
-    fields: {
-      name: "Name",
-      relationship: "Relationship",
-      recorded: "Recorded",
-      authorized: "Authorized",
-      status: "Status",
-    },
-    /** Names are how the crew actually says them, not how a form would. */
+    /** Names as the crew actually says them, not as a form would record them. */
     entries: [
       {
         name: "Mom",
         relationship: "mother",
-        recorded: "14 Mar · Houston",
-        authorized: "Consent recorded",
-        status: "Stored onboard",
+        line: "Says the hard part first, then waits.",
+        footer: "14 Mar · Houston · consent on file",
       },
       {
         name: "Commander Nate",
         relationship: "commanding officer, Mission Control",
-        recorded: "02 Apr · Houston",
-        authorized: "Consent recorded",
-        status: "Stored onboard",
+        line: "You are moving before he finishes the sentence.",
+        footer: "02 Apr · Houston · consent on file",
       },
       {
         name: "Tess",
         relationship: "sister",
-        recorded: "27 Feb · Cologne",
-        authorized: "Consent recorded",
-        status: "Stored onboard",
-      },
-      {
-        name: "—",
-        relationship: "—",
-        recorded: "—",
-        authorized: "—",
-        status: "Awaiting selection",
-        open: true,
+        line: "Still calls it your little trip.",
+        footer: "27 Feb · Cologne · consent on file",
       },
     ],
   },
-  payoff: "Every name on this list belongs to someone who stayed behind.",
+  closing: [
+    "Three voices. Every one of them chosen years before anyone needed it.",
+    "Once the ship leaves, this cannot be revised.",
+  ],
 } as const;
 
 /* ================================================================== *

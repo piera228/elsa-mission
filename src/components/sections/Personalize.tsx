@@ -1,28 +1,29 @@
 import { PERSONALIZE } from "@/lib/content";
-import { Section, SectionTitle, Reveal, Payoff } from "@/components/novel/Chrome";
+import { Section, SectionTitle, Reveal } from "@/components/novel/Chrome";
 
 const M = PERSONALIZE.manifest;
 
 /**
- * "Chosen before launch" — rendered as a pre-flight document rather than a card
- * grid, because the idea is bureaucratic and the content is not.
+ * "Chosen before launch" — three cards under a pre-flight document header.
  *
- * A manifest is a form: ruled rows, fixed fields, the same five every time, no
- * emphasis anywhere. That flatness is what makes the names land. Set the same
- * people in cards with headings and they read as options being offered; set
- * them as rows on a form and they read as decisions already taken, which is
- * what they are.
+ * The header and the footers keep the bureaucratic frame; everything between
+ * them is a person. That contrast is the whole design: an official form with
+ * one irreplaceable thing on it.
  *
- * Names are display serif and large, every other value is mono and small. The
- * name is the only thing on the row a person chose; the rest is administration,
- * and it is typeset as administration.
+ * Card hierarchy, in order down the card: the name largest, in display serif,
+ * because it is the only thing on the card anyone chose. The relationship
+ * small, lowercase and cold, because it is administration. The human line
+ * quiet, in the middle, with air above it. The date, place and consent
+ * smallest, monospaced, ruled off at the bottom edge.
  *
- * The last row is blank and slightly dimmed. It is not a control and must not
- * become one: no tick, no button, no hover state, no cursor change. Every other
- * line was filled in on Earth, and leaving this one open hands the question to
- * the reader instead of answering it — which is the whole reason the section
- * exists. `aria-hidden` is deliberately NOT used: a screen reader should reach
- * "Status: awaiting selection" like everyone else.
+ * Three across rather than four means each card has more room; that room is
+ * spent on vertical space around the name, not on more words. All three are
+ * styled identically — no emphasis on any one — so the reader compares the
+ * three people rather than being told which matters.
+ *
+ * They stack below `md` rather than `sm`: at 640px three columns leave the
+ * names wrapping and the human lines breaking every three words, which is
+ * exactly the crowding the extra width was meant to buy off.
  *
  * Server component, no JS.
  */
@@ -38,63 +39,54 @@ export function Personalize() {
       </Reveal>
 
       <Reveal>
-        <div className="hull-panel rounded-sm px-5 py-6 sm:px-8 sm:py-8">
-          {/* Document header. A static marker, not the pulsing one used on live
-              consoles elsewhere: this is a record, not a running system. */}
-          <div className="flex items-center gap-3 pb-2">
-            <span aria-hidden className="block h-1.5 w-1.5 shrink-0 rounded-full bg-telemetry-dim" />
-            <span className="tel !text-telemetry">{M.label}</span>
-            <span aria-hidden className="h-px flex-1 bg-seam" />
-          </div>
-
-          <ul className="divide-y divide-seam">
-            {M.entries.map((entry) => (
-              <li
-                key={entry.name + entry.recorded}
-                className={`grid gap-6 py-8 sm:grid-cols-[minmax(0,0.9fr)_minmax(0,2.4fr)] sm:gap-10 sm:py-9 ${
-                  "open" in entry && entry.open ? "opacity-55" : ""
-                }`}
-              >
-                <div>
-                  <Label>{M.fields.name}</Label>
-                  <p className="mt-2.5 font-display text-2xl leading-tight text-paper sm:text-[1.75rem]">
-                    {entry.name}
-                  </p>
-                </div>
-
-                <dl className="grid grid-cols-2 gap-x-8 gap-y-6 sm:grid-cols-4 sm:gap-x-6">
-                  <Field label={M.fields.relationship} value={entry.relationship} />
-                  <Field label={M.fields.recorded} value={entry.recorded} />
-                  <Field label={M.fields.authorized} value={entry.authorized} />
-                  <Field label={M.fields.status} value={entry.status} />
-                </dl>
-              </li>
-            ))}
-          </ul>
+        {/* Document header. A static marker, not the pulsing one used on live
+            consoles elsewhere: this is a record, not a running system. */}
+        <div className="mb-5 flex items-center gap-3">
+          <span aria-hidden className="block h-1.5 w-1.5 shrink-0 rounded-full bg-telemetry-dim" />
+          <span className="tel !text-telemetry">{M.label}</span>
+          <span aria-hidden className="h-px flex-1 bg-seam" />
         </div>
       </Reveal>
 
-      <Payoff>{PERSONALIZE.payoff}</Payoff>
+      <div className="grid gap-px overflow-hidden rounded-sm border border-seam bg-seam md:grid-cols-3">
+        {M.entries.map((entry) => (
+          <Reveal key={entry.name} className="bg-hull">
+            <div className="flex h-full flex-col p-8 sm:p-9 lg:p-10">
+              <h3 className="font-display text-3xl leading-none text-paper sm:text-[2rem]">
+                {entry.name}
+              </h3>
+
+              {/*
+                No `lowercase` utility here. The values are already lowercase
+                where they should be, and forcing it flattened "Mission
+                Control" to "mission control" — which is the one word on this
+                card that has to read as a place on Earth.
+              */}
+              <p className="mt-4 font-mono text-[0.75rem] leading-[1.6] tracking-[0.04em] text-telemetry">
+                {entry.relationship}
+              </p>
+
+              <p className="mt-9 flex-1 text-[1.0625rem] leading-[1.7] text-paper/85">
+                {entry.line}
+              </p>
+
+              <p className="mt-10 border-t border-seam pt-4 font-mono text-[0.625rem] uppercase leading-[1.6] tracking-[0.16em] text-muted">
+                {entry.footer}
+              </p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
+
+      {/* Two lines, the second stepped down, with air around both. */}
+      <Reveal className="mt-16 sm:mt-20">
+        <p className="font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
+          {PERSONALIZE.closing[0]}
+        </p>
+        <p className="mt-4 text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
+          {PERSONALIZE.closing[1]}
+        </p>
+      </Reveal>
     </Section>
-  );
-}
-
-/** Field label: the smallest, coldest thing on the row. */
-function Label({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="block font-mono text-[0.625rem] uppercase leading-none tracking-[0.2em] text-telemetry">
-      {children}
-    </span>
-  );
-}
-
-function Field({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <dt>
-        <Label>{label}</Label>
-      </dt>
-      <dd className="mt-2.5 font-mono text-[0.75rem] leading-[1.6] text-muted">{value}</dd>
-    </div>
   );
 }
