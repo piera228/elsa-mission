@@ -49,7 +49,7 @@ export default function Home() {
               </a>
             </p>
             <p className="text-sm text-muted">
-              Made with Claude Code · ChatGPT (illustrations) · Kimi 3 · ElevenLabs (voice)
+              ChatGPT (illustrations) · ElevenLabs (voice, and film with Veo 3.1) · Claude Code · Kimi 3
             </p>
           </div>
         </div>

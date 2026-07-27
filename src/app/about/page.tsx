@@ -98,33 +98,20 @@ export default function AboutPage() {
             </p>
           </Block>
 
-          <Block title="The API, and what actually runs">
+          <Block title="Built on the ElevenLabs API">
             <p>
-              There are two API routes, and only one of them runs while you are on the page.
-            </p>
-            <p>
+              &quot;Talk live&quot; is a real two-way conversation, not a recording.{" "}
               <Mono>/api/conversation-token</Mono> mints a short-lived token from{" "}
-              <Mono>/v1/convai/conversation/token</Mono> and hands it to the browser, so the API key
-              never reaches the client. &quot;Talk live&quot; then opens a real two-way conversation
-              over WebRTC against an ElevenAgents agent: <Mono>Gemini 2.5 Flash</Mono> reasons about
-              what you say, <Mono>eleven_v3_conversational</Mono> speaks the reply, and expressive
-              mode, on by default with that voice, tunes the delivery. That is the only ElevenLabs
-              call this site makes at request time.
+              <Mono>/v1/convai/conversation/token</Mono> server-side and hands it to the browser, so
+              the API key never leaves the server. The browser then opens a WebRTC session against
+              an ElevenAgents agent: <Mono>Gemini 2.5 Flash</Mono> reasons about what you say,{" "}
+              <Mono>eleven_v3_conversational</Mono> speaks the reply, and expressive mode, on by
+              default with that voice, tunes the delivery. You speak; E.L.S.A. answers, live.
             </p>
             <p>
-              Everything else you can hear is a file. The scripted exchanges in the console, and the
-              three recordings in the crew voice manifest, were generated in ElevenLabs ahead of
-              time and downloaded, then served as static audio. Nothing is synthesised while you
-              are here, which is why a polished take always lands and why the page costs nothing to
-              load until you press play.
-            </p>
-            <p>
-              <Mono>/api/speak</Mono> is the second route and is currently unused: a server-side
-              call to <Mono>/v1/text-to-speech</Mono> with per-register voice settings, sitting
-              behind a hook written so that a missing key is a designed state rather than an error.
-              Nothing on the page reaches it, because every exchange has a recording and the
-              fallback that would call it never runs. It is there for the sections that are built
-              but not currently on the site.
+              The scripted exchanges in the console and the three recordings in the crew voice
+              manifest are ElevenLabs voices too, rendered ahead of time and served as static audio.
+              A polished take always lands, and the page costs nothing to load until you press play.
             </p>
           </Block>
 
@@ -139,8 +126,9 @@ export default function AboutPage() {
               >
                 Piera Malatrassi
               </a>
-              . Illustrations generated with ChatGPT; reasoning by Gemini 2.5 Flash; voice by
-              ElevenLabs; development with Claude Code and Kimi 3.
+              . The illustrations were designed with ChatGPT and brought to life with ElevenLabs
+              using Veo 3.1. Voices and the live agent by ElevenLabs. Coded with Claude Code, with
+              more ideas from Kimi 3.
             </p>
             <p>
               The source is on{" "}

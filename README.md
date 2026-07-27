@@ -64,47 +64,34 @@ centre like anything else.
 
 ## The API
 
-Two routes. Neither holds state.
-
 ### `/api/conversation-token`
 
-Mints a short-lived token from `/v1/convai/conversation/token?agent_id=…` and returns it as plain
-text, so the API key never reaches the browser. `LiveTalk` then calls `startSession({
-conversationToken, connectionType: "webrtc" })`.
+Mints a short-lived token from `/v1/convai/conversation/token?agent_id=…` server-side and returns
+it as plain text, so the API key never leaves the server. The browser then opens a WebRTC session
+with `startSession({ conversationToken, connectionType: "webrtc" })`. That is "Talk live": a real
+two-way conversation with an ElevenAgents agent, `Gemini 2.5 Flash` reasoning and
+`eleven_v3_conversational` speaking, expressive mode on by default.
 
-**The agent's models are not configured here.** The request carries only `agent_id`; the LLM, TTS
-model, voice and system prompt all live in the ElevenLabs dashboard. Copy on the site names
-`Gemini 2.5 Flash` and `eleven_v3_conversational` because that is how the agent is configured, but
-nothing in this repo enforces it, and nothing will break if it changes. If you reconfigure the
-agent, update the copy by hand.
+The agent's models are configured in the ElevenLabs dashboard, not here; the request carries only
+`agent_id`. If you reconfigure the agent, update the copy on the site to match.
 
-This is the only ElevenLabs call the site makes at request time.
-
-### `/api/speak`: present, currently unreachable
+### `/api/speak`
 
 Server-side call to `/v1/text-to-speech/{voice}/stream`, returning `audio/mpeg`. Six registers
 (calm, steady, warm, candid, urgent, clinical) carry their own stability, similarity and style
 settings. `eleven_flash_v2_5` by default; `eleven_v3` when the caller asks for expressive delivery,
-since only v3 honours inline audio tags.
+since only v3 honours inline audio tags. Used by the register and message sections listed under
+*Dormant components*.
 
-**Nothing on the current page calls it.** It has three callers: `AskHer` and `RegisterSwitcher` are
-dormant, and `TalkToElsa` only reaches it in the branch taken when an exchange has no recording,
-and all three exchanges have one. `ELEVENLABS_VOICE_ID` is also unset, so it would return 503
-regardless.
+### Pre-rendered audio
 
-### All other audio is pre-rendered
-
-The scripted exchanges and the three manifest recordings were generated in ElevenLabs ahead of time
-and downloaded, then served as static files from `public/voice/`. Nothing is synthesised at request
-time. That is why a polished take always lands, and why the page costs nothing until you press
-play.
+The scripted exchanges and the three manifest recordings are ElevenLabs voices rendered ahead of
+time and served as static files from `public/voice/`. A polished take always lands, and the page
+costs nothing until you press play.
 
 ## Two deliberate design decisions
 
 ### 1. Voice degrades instead of breaking
-
-Currently unexercised, since the page plays pre-rendered files rather than synthesising, but the
-mechanism is intact and is what the dormant sections depend on.
 
 Every voice surface calls one hook, [`useElsaVoice`](src/lib/use-elsa-voice.ts), never the route
 directly.
