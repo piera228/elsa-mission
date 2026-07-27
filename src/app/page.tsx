@@ -38,6 +38,15 @@ export default function Home() {
               >
                 Piera Malatrassi
               </a>
+              {" · "}
+              <a
+                href={SITE.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-paper underline decoration-seam-lit underline-offset-4 transition-colors hover:text-elsa hover:decoration-elsa"
+              >
+                GitHub
+              </a>
             </p>
             <p className="text-sm text-muted">
               Made with Claude Code · ChatGPT (illustrations) · Kimi 3 · ElevenLabs (voice)
