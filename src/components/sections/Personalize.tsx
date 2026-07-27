@@ -57,7 +57,8 @@ export function Personalize() {
     <Section id="personalize" className="!pt-0 !pb-4 sm:!pb-6">
       <SectionTitle eyebrow={PERSONALIZE.eyebrow} heading={PERSONALIZE.heading} />
 
-      <Reveal className="mb-14 max-w-[68ch] space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:mb-16 sm:text-lg">
+      {/* No measure cap: body copy runs the full container width site-wide. */}
+      <Reveal className="mb-14 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:mb-16 sm:text-lg">
         {PERSONALIZE.body.map((para) => (
           <p key={para.slice(0, 24)}>{para}</p>
         ))}
