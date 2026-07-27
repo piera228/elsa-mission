@@ -71,8 +71,7 @@ export default function AboutPage() {
               The spark was TARS, the voice-driven machine from <em>Interstellar</em>. Proof of how
               much presence a voice alone can carry. But E.L.S.A. deliberately goes further in one
               direction: it is never given a body or a face. No robot, no avatar, no screen
-              character, only light and sound. A voice-first idea gets weaker the moment it has
-              something to look at.
+              character. Only light and sound.
             </p>
           </Block>
 
