@@ -11,9 +11,9 @@ export const SITE = {
   author: "Piera Malatrassi",
   linkedin: "https://www.linkedin.com/in/piera-malatrassi/",
 
-  /* TODO — replace before sending this to anyone. */
-  email: "you@example.com",
-  github: "https://github.com/yourhandle",
+  email: "pieramalatrassi.mb@gmail.com",
+  github: "https://github.com/piera228",
+  /** Drives metadataBase and the OpenGraph URL in layout.tsx. */
   url: "https://elsa-mission.vercel.app",
 } as const;
 
