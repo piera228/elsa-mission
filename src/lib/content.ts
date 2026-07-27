@@ -390,9 +390,12 @@ export const HIGHLIGHTS = {
  * collapses — so if that reading ever needs closing off again, this is
  * the line that closed it.
  *
- * Consent is on the face of every card, not a footnote, because
- * somebody sat in a room and said yes. That is the moral weight of the
- * whole idea.
+ * Consent now lives only in the card footers ("consent on file"). The
+ * paragraph that said somebody sat in a room on Earth and agreed to be
+ * heard has been removed, and with it the last statement anywhere in
+ * the section that the decision cannot be revised once the ship leaves.
+ * Both were called load-bearing when the section was briefed, so if the
+ * moral weight ever needs restoring, that paragraph is what carried it.
  * ================================================================== */
 export const PERSONALIZE = {
   eyebrow: "Chosen before launch",
@@ -400,7 +403,6 @@ export const PERSONALIZE = {
   heading: "Trust has to exist before launch",
   body: [
     "Under pressure, people do not follow the voice that sounds best. They follow the voice they already know. That is why it is chosen on Earth, years before the ship leaves: not because choice is a nice thing to offer, but because familiarity is what a person falls back on when there is nothing else to fall back on.",
-    "Someone has to agree to it. A person sits in a room on Earth for an afternoon and says yes to being heard, every day, by someone who will be further from home than anyone has ever been. Once the ship leaves, that decision cannot be revised.",
   ],
   manifest: {
     /**
