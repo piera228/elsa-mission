@@ -4,8 +4,8 @@ import { Section, SectionTitle, Reveal, Payoff } from "@/components/novel/Chrome
 /**
  * "Working without a link" — the section that answers the obvious objection.
  *
- * Structure: one diagram, then two paragraphs, then the admission. It was
- * previously a card, then a two-column grid, then a three-column grid, which
+ * Structure: one diagram, then two paragraphs. It was previously a card, then
+ * a two-column grid, then a three-column grid, which
  * re-explained in prose what the diagram had already shown and read as three
  * different treatments stacked. The two-column grid was the worst of it: two
  * equal boxes side by side is a comparison convention, and these two things are
@@ -56,15 +56,6 @@ export function NoUplink() {
       <Reveal className="mt-14 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
         <p>{NO_UPLINK.trust}</p>
         <p>{NO_UPLINK.real}</p>
-        <p className="text-paper/90">{NO_UPLINK.argument}</p>
-      </Reveal>
-
-      {/* The admission, given the width and the air of a closing beat rather
-          than being buried as the third column of a grid. */}
-      <Reveal className="mt-20 border-t border-seam pt-14">
-        <p className="font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
-          {NO_UPLINK.gap}
-        </p>
       </Reveal>
     </Section>
   );
