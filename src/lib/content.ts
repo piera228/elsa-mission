@@ -381,9 +381,14 @@ export const HIGHLIGHTS = {
  * causes. All are under twelve words; if one starts reaching, cut it
  * back rather than explaining it.
  *
- * Nate stayed on Earth, which is why his relationship field names
- * Mission Control. If a voice belonged to someone aboard, nothing was
- * carried and nothing was left behind, and the section collapses.
+ * Nate stayed on Earth. His relationship field used to say so
+ * explicitly ("commanding officer, Mission Control") and no longer
+ * does. Nothing on the card now states that he is not aboard; the only
+ * remaining hint is that his recording was made in Houston, which is
+ * true of every entry. If a voice belonged to someone on the ship,
+ * nothing was carried and nothing was left behind, and the section
+ * collapses — so if that reading ever needs closing off again, this is
+ * the line that closed it.
  *
  * Consent is on the face of every card, not a footnote, because
  * somebody sat in a room and said yes. That is the moral weight of the
@@ -406,18 +411,21 @@ export const PERSONALIZE = {
         relationship: "mother",
         line: "Says the hard part first, then waits.",
         footer: "14 Mar · Houston · consent on file",
+        audio: "/voice/manifest/mom.mp3",
       },
       {
         name: "Commander Nate",
-        relationship: "commanding officer, Mission Control",
+        relationship: "commanding officer",
         line: "You are moving before he finishes the sentence.",
         footer: "02 Apr · Houston · consent on file",
+        audio: "/voice/manifest/nate.mp3",
       },
       {
         name: "Tess",
         relationship: "sister",
         line: "Still calls it your little trip.",
         footer: "27 Feb · Cologne · consent on file",
+        audio: "/voice/manifest/tess.mp3",
       },
     ],
   },
