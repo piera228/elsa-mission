@@ -44,7 +44,7 @@ export const THE_SILENCE = {
   headline: `${MISSION.distanceKm} from home, the silence is the hardest part.`,
   body: [
     "The universe is vast, unforgiving, and indifferent to mistakes. The crew that changes history will be out there alone, surrounded by nothing, responsible for everything.",
-    "In that silence, they don't need another screen. They need a voice they recognize. Calm. Human. Capable of understanding an instruction and acting on it without hesitation.",
+    "In that silence, they need a voice they recognize. Calm. Human. Capable of understanding an instruction and acting on it without hesitation.",
     "We don't send interfaces into deep space. We send the sound of home.",
   ],
   cta: "››› Initialize E.L.S.A. system",
