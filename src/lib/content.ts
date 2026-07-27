@@ -457,9 +457,12 @@ export const DESIGNED_FOR = {
  * if the agent is ever reconfigured, this copy must be updated by hand.
  * Nothing here will break to warn you.
  *
- * The section used to close on "the technology is ready today", which
- * made the aspirational figures elsewhere on the site read as product
- * facts. The payoff now names the actual gap instead.
+ * This section carries no payoff line. It used to close on "the
+ * technology is ready today", which made the aspirational figures
+ * elsewhere read as product facts; that was replaced by a line naming
+ * the onboard gap, and then removed once NO_UPLINK arrived directly
+ * below and made the same point at length. The heading now poses the
+ * question and the next section answers it.
  * ================================================================== */
 export const POWERED_BY = {
   eyebrow: "How E.L.S.A. is built",
@@ -490,8 +493,6 @@ export const POWERED_BY = {
       model: "ElevenAgents",
     },
   ],
-  payoff:
-    "Every part of that runs today — over a network, to a data centre, with a link home. The piece that doesn't exist yet is the whole loop running onboard, 80 light-minutes from the nearest server. That is the distance between this demo and a mission.",
 } as const;
 
 /* ================================================================== *

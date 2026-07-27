@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { POWERED_BY } from "@/lib/content";
-import { Section, SectionTitle, Reveal, Payoff } from "@/components/novel/Chrome";
+import { Section, SectionTitle, Reveal } from "@/components/novel/Chrome";
 
 /**
  * "Powered by ElevenLabs" — the feasibility case, and the most CEO-relevant one:
  * every hard part of E.L.S.A. is a model ElevenLabs already ships. Four capability
  * cards, each anchored to a real model id (mono, elsa-deep — the established
- * model-badge treatment from HowItWorks), closed by a payoff line. Server
- * component, no JS.
+ * model-badge treatment from HowItWorks). Server component, no JS.
+ *
+ * No payoff line: the heading's "one piece doesn't" is answered by NO_UPLINK
+ * immediately below, so closing the argument here would say it twice and blunt
+ * the section that exists to make it properly.
  */
 export function PoweredBy() {
   return (
@@ -33,9 +36,8 @@ export function PoweredBy() {
         ))}
       </div>
 
-      <Payoff>{POWERED_BY.payoff}</Payoff>
-
-      <Reveal className="mt-8">
+      {/* Spacing picked up from the removed Payoff, which carried its own top rule. */}
+      <Reveal className="mt-10">
         <Link
           href="/about"
           className="group inline-flex items-center gap-2.5 rounded-full border border-seam-lit px-5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:border-elsa/60 hover:text-elsa"
