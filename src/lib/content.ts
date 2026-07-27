@@ -383,10 +383,6 @@ export const PERSONALIZE = {
       title: "A trainer you trust",
       body: "The instructor who ran you through every drill. A voice you already follow without a second thought.",
     },
-    {
-      title: "A steady crewmate",
-      body: "A commander or teammate whose calm you know by heart, on the channel whenever you need it.",
-    },
   ],
   payoff: "Familiar the whole way out, and the whole way home.",
 } as const;
