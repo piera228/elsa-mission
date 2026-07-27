@@ -291,77 +291,64 @@ export const TALK = {
 } as const;
 
 /* ================================================================== *
- * HIGHLIGHTS — the bar the mission sets, not a product factsheet
+ * HIGHLIGHTS — the mission requirements, as a specification
  * ------------------------------------------------------------------
- * This section is read by people who build the models it names, so the
- * two categories have to stay visually and grammatically distinct:
+ * This reads as a requirements document, not a factsheet. Each card
+ * answers one question: what would this voice absolutely need in order
+ * to accompany a crew living years from Earth?
  *
- *   status "today" — a capability that ships now. Stated in the present
- *     tense, and every figure must be checkable against ElevenLabs'
- *     published documentation.
- *   status "open"  — a mission requirement nothing satisfies yet.
- *     Stated in the conditional ("would have to"), so it reads as a
- *     specification rather than a claim about an existing product.
+ * It previously mixed four registers in one grid — product capability,
+ * engineering metric, open research problem, and marketing claim — with
+ * a "ships today / open problem" marker trying to hold them apart. That
+ * made it a feature comparison, which is an argument about a product,
+ * and this section is not about a product. Every latency figure, uptime
+ * percentage, model id and status marker is gone. What remains is the
+ * capability itself.
  *
- * Two claims were removed rather than reframed. "Trusted across
- * aerospace and defence programs worldwide (40+)" was a false statement
- * about ElevenLabs' customers, not an aspiration — no conditional tense
- * could rescue it, so it is gone and the light-delay card took its slot.
- * "Ten times faster than any other AI voice model" was unsourced; the
- * real published figure (~75 ms) is stronger and is now used instead.
- *
- * Note the ~75 ms belongs to eleven_flash_v2_5, NOT to the model the
- * live demo runs. Do not move that number onto v3 Conversational —
- * ElevenLabs publishes no millisecond figure for it.
+ * Headlines are one word and set in paper, not amber: amber is only
+ * ever E.L.S.A.'s voice (invariant #1), and these are requirements, not
+ * her. The subtitle carries the cold telemetry blue so the hierarchy
+ * reads by temperature as well as by size.
  * ================================================================== */
 export const HIGHLIGHTS = {
   eyebrow: "Mission requirements",
   heading: "What the mission would demand of a voice.",
-  /** Marker labels. Rendered against a filled / hollow telemetry dot. */
-  statusToday: "Ships today",
-  statusOpen: "Open problem",
   items: [
     {
-      figure: "~75",
-      unit: "ms · flash v2.5",
-      title: "Fast enough to interrupt",
-      status: "today",
-      body: "Below about a second, people stop addressing a system and start talking to someone. eleven_flash_v2_5 generates speech in ~75 ms today. The live demo on this page runs eleven_v3_conversational instead, trading raw speed for expressive control.",
+      title: "Instant",
+      subtitle: "Respond without breaking thought.",
+      body: "A crew can't wait while an interface catches up. A voice should answer naturally, fast enough that conversation never feels interrupted.",
+      label: "Mission critical",
     },
     {
-      figure: "80",
-      unit: "minutes one way",
-      title: "No round trip home",
-      status: "open",
-      body: "At Saturn, a question and its answer are two hours and forty minutes apart. The voice would have to hear, reason and reply without reaching a server at all. Nothing does that yet.",
+      title: "Autonomous",
+      subtitle: "Operate without Earth.",
+      body: "By Saturn, a question and its answer are separated by nearly three hours. The voice must understand, reason, and act entirely onboard, without waiting for a server or mission control.",
+      label: "Essential",
     },
     {
-      figure: "Any",
-      unit: "environment",
-      title: "Built for the hardest missions",
-      status: "open",
-      body: "It would have to hold through launch loads, radiation and seven years of vacuum, anywhere failure isn't an option, with no one to reboot it.",
-    },
-    {
-      figure: "24/7",
-      unit: "always on",
-      title: "Always present",
-      status: "today",
-      body: "Never sleeps, never looks away, never needs waking. Availability is the one mission requirement a hosted voice already meets in full.",
-    },
-    {
-      figure: "70+",
-      unit: "languages",
-      title: "Human",
-      status: "today",
-      body: "Four crew from four agencies, each answered in their own language. eleven_v3_conversational speaks 70+ of them today, with the warmth and inflection of a person's voice.",
-    },
-    {
-      figure: "100%",
-      unit: "uptime",
       title: "Reliable",
-      status: "open",
-      body: "It would have to run entirely onboard and stay up for the length of the mission, far from any signal. Offline inference at this quality is the piece that does not exist.",
+      subtitle: "Never become unavailable.",
+      body: "The crew depends on it every day: for procedures, emergencies, and ordinary conversation. It cannot disappear because the network does.",
+      label: "Non-negotiable",
+    },
+    {
+      title: "Resilient",
+      subtitle: "Function in any environment.",
+      body: "Launch vibration. Radiation. Vacuum. Years without maintenance. The voice has to continue operating when repair is impossible.",
+      label: "Crew safety",
+    },
+    {
+      title: "Human",
+      subtitle: "Speak like someone you trust.",
+      body: "In isolation, clarity matters, but so does warmth. The voice should reduce cognitive load, adapt to stress, and feel familiar during the longest journey humanity has ever attempted.",
+      label: "Human factors",
+    },
+    {
+      title: "Universal",
+      subtitle: "Understand every crew member.",
+      body: "Future crews will come from different nations and backgrounds. Every astronaut should be able to speak naturally, in their own language, without adapting to the machine.",
+      label: "Required",
     },
   ],
 } as const;
