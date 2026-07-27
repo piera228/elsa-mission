@@ -1,5 +1,6 @@
 import { Cover } from "@/components/novel/Cover";
 import { Starfield } from "@/components/ui/Starfield";
+import { TalkFab } from "@/components/ui/TalkFab";
 import { TheSilence } from "@/components/sections/TheSilence";
 import { TalkToElsa } from "@/components/sections/TalkToElsa";
 import { Highlights } from "@/components/sections/Highlights";
@@ -13,6 +14,7 @@ export default function Home() {
   return (
     <>
       <Starfield />
+      <TalkFab />
       <main className="relative">
         <Cover />
         <TheSilence />
