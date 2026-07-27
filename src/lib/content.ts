@@ -515,6 +515,14 @@ export const POWERED_BY = {
  * knows the light-time arithmetic is already doing it — meeting them
  * there is stronger than easing in.
  *
+ * It said "Earth is eighty minutes away", which a reader in this
+ * industry parses as latency — a number someone could engineer down.
+ * Naming Saturn and calling them light-minutes closes that reading:
+ * this is the speed of light, it is a floor, and no amount of money
+ * moves it. The intro then spends its first two sentences on that
+ * single point, because every other claim in the section depends on
+ * the reader accepting it.
+ *
  * Numbers here are physical only: MISSION.owltMinutes one way, twice
  * that for a question and an answer.
  *
@@ -531,9 +539,9 @@ export const POWERED_BY = {
  * ================================================================== */
 export const NO_UPLINK = {
   eyebrow: "Working without a link",
-  heading: "Earth is eighty minutes away. E.L.S.A. is not.",
+  heading: "From Saturn, Earth is eighty light-minutes away. E.L.S.A. is not.",
   intro:
-    "Every voice assistant you have used answers over a network. At Saturn there is no network. There is only a link, eighty minutes wide. A question and its answer are a hundred and sixty minutes apart. So E.L.S.A. is built as two separate things, and only one of them ever crosses space.",
+    "Eighty minutes is not a network problem. It is how long light itself takes to cross from Saturn to Earth, and nothing goes faster. Ask Mission Control a question and the answer arrives two hours and forty minutes later: eighty minutes out, eighty minutes back, and only if someone replies the instant it lands. Every voice assistant you have used answers over a network. At Saturn there is no network to answer over. So E.L.S.A. is built as two separate things, and only one of them ever crosses space.",
   payoff: "You cannot call home. So home comes with you.",
   /** The voice is enrolled on Earth, and it does not improvise instructions. */
   trust:
