@@ -33,6 +33,20 @@ export const SITE = {
 export const MISSION = {
   /** One-way light time, minutes, at the point the site is set. */
   owltMinutes: 80,
+  /**
+   * The same distance in kilometres, for the places that state it as a
+   * distance rather than a delay: 299,792.458 km/s × 4,800 s = 1,439,003,798 km,
+   * quoted to three significant figures. It matches the 1.44 billion km that
+   * Cassini's pale-blue-dot frame is already given at elsewhere in the copy.
+   *
+   * Light-years are the wrong unit by six orders of magnitude here — this is
+   * 0.00015 of one — and AU (9.62) means nothing to a general reader.
+   *
+   * This lives in MISSION rather than in the headline because that headline has
+   * now been restated four different ways, and every one of them had to agree
+   * with owltMinutes to be true.
+   */
+  distanceKm: "1.44 billion kilometres",
   /** Round trip to Mission Control: owltMinutes, there and back. */
   roundTrip: "2h 40m",
   roundTripSeconds: 9_600,

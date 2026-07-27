@@ -32,17 +32,16 @@ export const COVER = {
  * ================================================================== */
 export const THE_SILENCE = {
   /**
-   * The headline states the distance as time, not miles, because time is the
-   * whole thesis: eighty light-minutes is what makes Earth useless in an
-   * emergency, and no number of miles conveys that. It read "240 million
-   * miles" (Earth to Mars at opposition) and then "890 million" (Earth to
-   * Saturn, which at least matched the imagery and MISSION.owltMinutes). Both
-   * made the reader do light-speed arithmetic to reach the point. This states
-   * the point.
+   * Interpolated from MISSION rather than typed, because this line has been
+   * restated four times now: "240 million miles" (Earth to Mars, contradicting
+   * the Saturn imagery), "890 million miles" (right planet, rounded off the
+   * light time), then the delay in words, and now the distance again. Each
+   * version had to agree with owltMinutes to be true, and twice it did not.
+   * Deriving it removes the possibility.
    */
   /** Label only. Deliberately carries no figures that could contradict the site. */
   transmissionLabel: "Incoming transmission",
-  headline: "An hour and twenty minutes from home, the silence is the hardest part.",
+  headline: `${MISSION.distanceKm} from home, the silence is the hardest part.`,
   body: [
     "The universe is vast, unforgiving, and indifferent to mistakes. The crew that changes history will be out there alone, surrounded by nothing, responsible for everything.",
     "In that silence, they don't need another screen. They need a voice they recognize. Calm. Human. Capable of understanding an instruction and acting on it without hesitation.",
@@ -317,7 +316,7 @@ export const TALK = {
  * ================================================================== */
 export const HIGHLIGHTS = {
   eyebrow: "Mission requirements",
-  lead: "The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew an hour and twenty minutes from Earth.",
+  lead: `The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew ${MISSION.distanceKm} from Earth.`,
   heading: "What the mission would demand of a voice.",
   /** Marker labels. Rendered against a filled / hollow telemetry dot. */
   statusToday: "Ships today",
