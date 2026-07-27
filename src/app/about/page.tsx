@@ -108,11 +108,6 @@ export default function AboutPage() {
               <Mono>eleven_v3_conversational</Mono> speaks the reply, and expressive mode, on by
               default with that voice, tunes the delivery. You speak; E.L.S.A. answers, live.
             </p>
-            <p>
-              The scripted exchanges in the console and the three recordings in the crew voice
-              manifest are ElevenLabs voices too, rendered ahead of time and served as static audio.
-              A polished take always lands, and the page costs nothing to load until you press play.
-            </p>
           </Block>
 
           <Block title="Made with">
