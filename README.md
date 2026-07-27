@@ -21,7 +21,7 @@ Past lunar orbit, four constraints hold simultaneously:
 | --- | --- | --- |
 | No hands available | **4.3 psi** | A pressurised EVA glove spends grip strength just closing the fingers. No capacitive screen works through one. |
 | No attention to spare | **0 spare glances** | During a burn or a jammed drill, a display can only inform someone willing to look away from the task. |
-| No one to ask | **2h 53m** | Light takes 66–86 min to reach Saturn. Mission Control cannot be in the loop. |
+| No one to ask | **2h 40m** | Light takes about 80 min to reach Saturn. Mission Control cannot be in the loop. |
 | No one else to talk to | **7 years** | NASA lists isolation and confinement alongside radiation as a primary spaceflight hazard. |
 
 Three are engineering problems. The fourth is human. A voice that arrives in milliseconds, sounds
@@ -51,8 +51,8 @@ scribe_v2_realtime  →    onboard inference    →    eleven_flash_v2_5
 ~150 ms                  ~400 ms                   ~75 ms
 ```
 
-Total ≈ **0.8 s**, against **10,380 s** for the same exchange via Mission Control, about
-**13,000× faster**. That ratio is the entire argument for putting the voice on the vehicle.
+Total ≈ **0.8 s**, against **9,600 s** for the same exchange via Mission Control, about
+**12,000× faster**. That ratio is the entire argument for putting the voice on the vehicle.
 
 Two of those three stages ship today. The middle one, reasoning onboard with no link home, is
 the open problem, and the site says so rather than implying otherwise. The live demo on the site

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import nasa from "../../../public/logos/nasa.png";
 import esa from "../../../public/logos/esa.png";
 import { DESIGNED_FOR } from "@/lib/content";
@@ -64,6 +65,24 @@ export function DesignedFor() {
             {DESIGNED_FOR.disclaimer}
           </p>
         </div>
+      </Reveal>
+
+      {/*
+        The last thing on the page. It used to close the PoweredBy section,
+        which put a "read more" exit two sections before the argument finished;
+        a reader who took it left mid-thought. This is the end, so it is where
+        the invitation belongs.
+      */}
+      <Reveal className="mt-12 flex justify-center">
+        <Link
+          href="/about"
+          className="group inline-flex items-center gap-2.5 rounded-full border border-seam-lit px-5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:border-elsa/60 hover:text-elsa"
+        >
+          Learn more about the project
+          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
+        </Link>
       </Reveal>
     </Section>
   );

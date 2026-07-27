@@ -4,33 +4,36 @@ import { Section, SectionTitle, Reveal, Payoff } from "@/components/novel/Chrome
 /**
  * "Working without a link" — the section that answers the obvious objection.
  *
- * The whole section carries one distinction, so the diagram is built to state
- * it in shape and colour before a single label is read: channel A is a small
- * closed amber loop entirely inside the hull, channel B is one thin cold line
- * running the full width of the frame. Nothing connects them. That absence is
- * the point — the loop has no line leaving it, and the eye should find that
- * before the caption explains it.
+ * Structure: one diagram, then two paragraphs, then the admission. It was
+ * previously a card, then a two-column grid, then a three-column grid, which
+ * re-explained in prose what the diagram had already shown and read as three
+ * different treatments stacked. The two-column grid was the worst of it: two
+ * equal boxes side by side is a comparison convention, and these two things are
+ * not being compared. They are in different places, which is the entire point.
  *
- * On palette: the onboard loop is the only amber in the section, including the
- * channel cards below. Amber is E.L.S.A.'s voice (invariant #1), the loop *is*
- * her voice, and spending amber anywhere else here would blunt the one place it
- * carries meaning.
+ * So the explanation moved onto the drawing. One annotation inside the hull
+ * beside the loop, one out along the line near the eighty-minute mark, each
+ * sitting where the thing it describes actually is. No cards, no borders.
  *
- * On animation: this deliberately does NOT use `motion`, despite that being the
- * library the rest of the site reaches for. Every `motion` scroll entrance
- * begins from an `initial` hidden state, which is baked into the server HTML —
- * so the diagram would be invisible until hydration, and permanently invisible
- * if a script failed. That is exactly the bug invariant #4 exists to prevent,
- * and it has bitten this project once already. Instead the entrance uses the
- * site's own scroll-driven `.reveal` (CSS `animation-timeline: view()`, additive
- * over a visible base state) and the channel character comes from two CSS dash
- * animations. The result is a server component that ships no JavaScript at all
- * and degrades to a complete, readable diagram.
+ * The link from Earth terminates ON the speak node rather than stopping in
+ * empty space beside the ship. That join is the argument in one stroke: Earth
+ * sends words, and they come out of E.L.S.A.'s mouth. Drawn touching, they are
+ * one system; drawn apart, they were two diagrams sharing a frame.
  *
- * Two versions of the diagram rather than one scaled down: at 375px the wide
- * layout's long horizontal link would either shrink the ship to illegibility or
- * force the labels to collide, so narrow screens get a stacked variant where
- * the link runs vertically and the geometry stays at a readable size.
+ * Contrast: labels are `muted` (~5.8:1) and region labels `telemetry` (~6.6:1)
+ * against the panel, both clearing WCAG AA. They were `faint` and
+ * `telemetry-dim`, which measure ~2.9:1 and ~2.6:1 and failed it outright.
+ *
+ * On palette: the loop is the only amber here, including the annotations. Amber
+ * is E.L.S.A.'s voice (invariant #1) and the loop is her voice, so spending it
+ * anywhere else would blunt the one place it carries meaning.
+ *
+ * On animation: deliberately not `motion`. Its scroll entrances begin from an
+ * `initial` hidden state baked into the server HTML, so the diagram would be
+ * invisible until hydration and permanently invisible if a script failed —
+ * the exact bug invariant #4 exists to prevent. Entrance is the site's own
+ * `.reveal`; channel character is two CSS dash animations over solid base
+ * paths. The section ships no JavaScript.
  */
 export function NoUplink() {
   return (
@@ -41,62 +44,44 @@ export function NoUplink() {
         intro={NO_UPLINK.intro}
       />
 
-      <Reveal className="mb-14 sm:mb-16">
+      <Reveal>
         <div className="hull-panel rounded-sm px-4 py-8 sm:px-8 sm:py-10">
           <WideDiagram />
           <StackedDiagram />
         </div>
       </Reveal>
 
-      <div className="grid gap-px overflow-hidden rounded-sm border border-seam bg-seam sm:grid-cols-2">
-        {NO_UPLINK.channels.map((c) => (
-          <Reveal key={c.tag} className="bg-hull">
-            <div className="flex h-full flex-col p-6 sm:p-8">
-              <span className="tel !text-telemetry">{c.tag}</span>
-              <h3 className="mt-4 font-display text-xl text-paper sm:text-2xl">{c.title}</h3>
-              <p className="mt-4 text-[0.9375rem] leading-[1.7] text-muted">{c.body}</p>
-              <p className="mt-5 border-t border-seam pt-5 text-[0.9375rem] leading-[1.7] text-paper/80">
-                {c.note}
-              </p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
-      <div className="mt-8 grid gap-px overflow-hidden rounded-sm border border-seam bg-seam md:grid-cols-3">
-        {NO_UPLINK.points.map((p) => (
-          <Reveal key={p.title} className="bg-hull">
-            <div className="flex h-full flex-col p-6 sm:p-8">
-              <h3 className="text-base font-medium text-paper">{p.title}</h3>
-              <p className="mt-3 text-[0.9375rem] leading-[1.7] text-muted">{p.body}</p>
-            </div>
-          </Reveal>
-        ))}
-      </div>
-
       <Payoff>{NO_UPLINK.payoff}</Payoff>
+
+      <Reveal className="mt-14 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
+        <p>{NO_UPLINK.trust}</p>
+        <p>{NO_UPLINK.real}</p>
+        <p className="text-paper/90">{NO_UPLINK.argument}</p>
+      </Reveal>
+
+      {/* The admission, given the width and the air of a closing beat rather
+          than being buried as the third column of a grid. */}
+      <Reveal className="mt-20 border-t border-seam pt-14">
+        <p className="font-display text-xl leading-[1.5] text-paper/90 sm:text-2xl">
+          {NO_UPLINK.gap}
+        </p>
+      </Reveal>
     </Section>
   );
 }
 
 const D = NO_UPLINK.diagram;
 
-/**
- * Shared type styles for diagram labels.
- *
- * Sentence case, not the uppercase `tel` treatment used for eyebrows elsewhere.
- * Inside a diagram the labels are read as annotations on a drawing rather than
- * as section furniture, and letter-spaced caps at 11px fight the thin strokes
- * they sit next to. Tracking is loosened only slightly, enough to keep the mono
- * reading as instrumentation.
- */
-const LABEL = "fill-faint font-mono text-[11px]";
-const TEL = "fill-telemetry-dim font-mono text-[11px] tracking-[0.08em]";
+/* Label styles. Sizes are up from 11px and colours up from faint/telemetry-dim;
+   see the contrast note above. */
+const NODE = "fill-muted font-mono text-[13px]";
+const REGION = "fill-telemetry font-mono text-[12px] tracking-[0.08em]";
+const NOTE = "fill-paper/90 font-mono text-[13px]";
 
 /**
- * The closed onboard loop, drawn twice: a solid amber stadium, then the same
- * geometry again carrying the travelling highlight. `pathLength="100"` lets one
- * CSS rule drive both diagrams despite their different real path lengths.
+ * The closed onboard loop: a solid amber stadium, then the same geometry again
+ * carrying the travelling highlight. `pathLength="100"` lets one CSS rule drive
+ * both diagrams despite their different real path lengths.
  */
 function Loop({ d }: { d: string }) {
   return (
@@ -113,11 +98,11 @@ function Loop({ d }: { d: string }) {
   );
 }
 
-/** The one-way link from Earth. Drawn Earth-first so the dashes travel inbound. */
+/** The one-way link. Drawn Earth-first so the dashes travel inbound, toward speak. */
 function Link({ d }: { d: string }) {
   return (
     <>
-      <path d={d} pathLength="100" className="fill-none stroke-telemetry-dim/60" strokeWidth="1" />
+      <path d={d} pathLength="100" className="fill-none stroke-telemetry-dim" strokeWidth="1" />
       <path
         d={d}
         pathLength="100"
@@ -132,7 +117,7 @@ function Link({ d }: { d: string }) {
 function WideDiagram() {
   return (
     <svg
-      viewBox="0 0 1040 264"
+      viewBox="0 0 1120 300"
       role="img"
       aria-labelledby="nu-wide-t nu-wide-d"
       className="hidden h-auto w-full sm:block"
@@ -141,67 +126,83 @@ function WideDiagram() {
       <desc id="nu-wide-d">{D.desc}</desc>
 
       {/* ---- the hull ---- */}
-      <text x="16" y="38" className={TEL}>
+      <text x="24" y="52" className={REGION}>
         {D.ship}
       </text>
       <rect
-        x="16"
-        y="52"
-        width="360"
-        height="196"
+        x="24"
+        y="64"
+        width="380"
+        height="210"
         rx="16"
-        className="fill-none stroke-seam-lit"
+        className="fill-none stroke-telemetry-dim"
         strokeWidth="1"
       />
 
-      {/* ---- channel A: a closed loop, no line leaving the hull ---- */}
-      <Loop d="M 116 104 H 276 a 30 30 0 0 1 0 60 H 116 a 30 30 0 0 1 0 -60 Z" />
-      <circle cx="196" cy="104" r="3" className="fill-elsa" />
-      <circle cx="150" cy="164" r="3" className="fill-elsa" />
-      <circle cx="242" cy="164" r="3" className="fill-elsa" />
-      <text x="196" y="92" textAnchor="middle" className={LABEL}>
+      {/* ---- the closed loop. `speak` sits at the rightmost point, which is
+              where the link from Earth lands. ---- */}
+      <Loop d="M 130 110 H 280 a 30 30 0 0 1 0 60 H 130 a 30 30 0 0 1 0 -60 Z" />
+      <circle cx="215" cy="110" r="3.5" className="fill-elsa" />
+      <circle cx="160" cy="170" r="3.5" className="fill-elsa" />
+      <circle cx="310" cy="140" r="4" className="fill-elsa" />
+      <text x="215" y="98" textAnchor="middle" className={NODE}>
         {D.nodes[1]}
       </text>
-      <text x="150" y="182" textAnchor="middle" className={LABEL}>
+      <text x="160" y="192" textAnchor="middle" className={NODE}>
         {D.nodes[0]}
       </text>
-      <text x="242" y="182" textAnchor="middle" className={LABEL}>
+      <text x="310" y="192" textAnchor="middle" className={NODE}>
         {D.nodes[2]}
       </text>
-      <text x="196" y="222" textAnchor="middle" className={TEL}>
-        {D.loop}
-      </text>
 
-      {/* ---- channel B: one thin line, the full width of the frame ---- */}
-      <Link d="M 974 134 H 386" />
+      {/* Annotation inside the hull, beside the loop it describes. */}
+      {D.shipNote.map((line, i) => (
+        <text key={line} x="214" y={214 + i * 20} textAnchor="middle" className={NOTE}>
+          {line}
+        </text>
+      ))}
+
+      {/* ---- the link, terminating on `speak` ---- */}
+      <text x="680" y="104" textAnchor="middle" className={REGION}>
+        {D.line}
+      </text>
+      <text x="680" y="126" textAnchor="middle" className={REGION}>
+        {D.delay}
+      </text>
+      <Link d="M 1036 140 H 310" />
       <path
-        d="M 396 128 L 386 134 L 396 140"
+        d="M 332 132 L 320 140 L 332 148"
         className="fill-none stroke-telemetry"
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <text x="680" y="118" textAnchor="middle" className={TEL}>
-        {D.delay}
-      </text>
-      <text x="680" y="158" textAnchor="middle" className={LABEL}>
-        {D.payload}
-      </text>
+
+      {D.lineNote.map((line, i) => (
+        <text key={line} x="680" y={172 + i * 20} textAnchor="middle" className={NOTE}>
+          {line}
+        </text>
+      ))}
 
       {/* ---- Earth ---- */}
-      <circle cx="1000" cy="134" r="20" className="fill-none stroke-telemetry-dim" strokeWidth="1" />
-      <text x="1000" y="180" textAnchor="middle" className={TEL}>
+      <circle cx="1060" cy="140" r="22" className="fill-none stroke-telemetry-dim" strokeWidth="1" />
+      <text x="1060" y="186" textAnchor="middle" className={REGION}>
         {D.earth}
       </text>
     </svg>
   );
 }
 
-/** Narrow: the same two channels, stacked, at unreduced size. */
+/**
+ * Narrow: the ship above, Earth below, the connector rotated to vertical. The
+ * long empty run between them is kept deliberately — making eighty minutes
+ * something you can see is what the diagram is for, so it is not compressed to
+ * save height.
+ */
 function StackedDiagram() {
   return (
     <svg
-      viewBox="0 0 360 620"
+      viewBox="0 0 360 780"
       role="img"
       aria-labelledby="nu-stack-t nu-stack-d"
       className="mx-auto h-auto w-full max-w-[360px] sm:hidden"
@@ -209,53 +210,71 @@ function StackedDiagram() {
       <title id="nu-stack-t">{D.title}</title>
       <desc id="nu-stack-d">{D.desc}</desc>
 
-      <text x="20" y="26" className={TEL}>
+      <text x="16" y="32" className={REGION}>
         {D.ship}
       </text>
       <rect
-        x="20"
-        y="40"
-        width="320"
-        height="200"
+        x="16"
+        y="44"
+        width="328"
+        height="250"
         rx="16"
-        className="fill-none stroke-seam-lit"
+        className="fill-none stroke-telemetry-dim"
         strokeWidth="1"
       />
 
+      {/*
+        The connector runs down x=280, not down the middle. Centred, it drew
+        straight through the annotation and the "line to Earth" label, which
+        made the diagram look broken rather than connected. `speak` therefore
+        stays at the loop's rightmost point (as in the wide version) and every
+        label is centred at x=140, clear of the line's column.
+      */}
       <Loop d="M 110 100 H 250 a 30 30 0 0 1 0 60 H 110 a 30 30 0 0 1 0 -60 Z" />
-      <circle cx="180" cy="100" r="3" className="fill-elsa" />
-      <circle cx="145" cy="160" r="3" className="fill-elsa" />
-      <circle cx="215" cy="160" r="3" className="fill-elsa" />
-      <text x="180" y="88" textAnchor="middle" className={LABEL}>
+      <circle cx="180" cy="100" r="3.5" className="fill-elsa" />
+      <circle cx="140" cy="160" r="3.5" className="fill-elsa" />
+      <circle cx="280" cy="130" r="4" className="fill-elsa" />
+      <text x="180" y="88" textAnchor="middle" className={NODE}>
         {D.nodes[1]}
       </text>
-      <text x="145" y="178" textAnchor="middle" className={LABEL}>
+      <text x="140" y="182" textAnchor="middle" className={NODE}>
         {D.nodes[0]}
       </text>
-      <text x="215" y="178" textAnchor="middle" className={LABEL}>
+      <text x="292" y="122" className={NODE}>
         {D.nodes[2]}
       </text>
-      <text x="180" y="216" textAnchor="middle" className={TEL}>
-        {D.loop}
+
+      {D.shipNote.map((line, i) => (
+        <text key={line} x="140" y={214 + i * 22} textAnchor="middle" className={NOTE}>
+          {line}
+        </text>
+      ))}
+
+      <text x="262" y="340" textAnchor="end" className={REGION}>
+        {D.line}
       </text>
 
-      <Link d="M 180 534 V 262 " />
+      <Link d="M 280 700 V 130" />
       <path
-        d="M 174 272 L 180 262 L 186 272"
+        d="M 272 154 L 280 142 L 288 154"
         className="fill-none stroke-telemetry"
         strokeWidth="1"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <text x="200" y="345" className={TEL}>
+      <line x1="268" y1="400" x2="292" y2="400" className="stroke-telemetry-dim" strokeWidth="1" />
+      <text x="258" y="404" textAnchor="end" className={REGION}>
         {D.delay}
       </text>
-      <text x="200" y="455" className={LABEL}>
-        {D.payload}
-      </text>
 
-      <circle cx="180" cy="560" r="22" className="fill-none stroke-telemetry-dim" strokeWidth="1" />
-      <text x="180" y="606" textAnchor="middle" className={TEL}>
+      {D.lineNoteNarrow.map((line, i) => (
+        <text key={line} x="140" y={476 + i * 22} textAnchor="middle" className={NOTE}>
+          {line}
+        </text>
+      ))}
+
+      <circle cx="280" cy="724" r="22" className="fill-none stroke-telemetry-dim" strokeWidth="1" />
+      <text x="280" y="770" textAnchor="middle" className={REGION}>
         {D.earth}
       </text>
     </svg>

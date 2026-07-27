@@ -32,16 +32,17 @@ export const COVER = {
  * ================================================================== */
 export const THE_SILENCE = {
   /**
-   * "890 million miles" is Earth–Saturn, and it is the figure the rest of the
-   * site is built on: MISSION.owltMinutes (80) is the light time at that
-   * distance, and MISSION.roundTrip (2h 53m) follows from it. This previously
-   * read "240 million miles" — Earth–Mars at opposition — which contradicted
-   * both. Changed once the Highlights light-delay card put the two numbers on
-   * the same screen.
+   * The headline states the distance as time, not miles, because time is the
+   * whole thesis: eighty light-minutes is what makes Earth useless in an
+   * emergency, and no number of miles conveys that. It read "240 million
+   * miles" (Earth to Mars at opposition) and then "890 million" (Earth to
+   * Saturn, which at least matched the imagery and MISSION.owltMinutes). Both
+   * made the reader do light-speed arithmetic to reach the point. This states
+   * the point.
    */
-  /** Label only — deliberately carries no figures that could contradict the site. */
+  /** Label only. Deliberately carries no figures that could contradict the site. */
   transmissionLabel: "Incoming transmission",
-  headline: "890 million miles from home, the silence is the hardest part.",
+  headline: "An hour and twenty minutes from home, the silence is the hardest part.",
   body: [
     "The universe is vast, unforgiving, and indifferent to mistakes. The crew that changes history will be out there alone, surrounded by nothing, responsible for everything.",
     "In that silence, they don't need another screen. They need a voice they recognize. Calm. Human. Capable of understanding an instruction and acting on it without hesitation.",
@@ -77,7 +78,7 @@ export const WHY_VOICE = {
       figure: MISSION.roundTrip,
       unit: "round trip",
       title: "No one to ask",
-      body: "Light takes 66 to 86 minutes to reach Saturn. A question to Mission Control and its answer are up to 2 hours 53 minutes apart. NASA names distance from Earth as one of the five hazards of human spaceflight for precisely this reason: no human can be in the loop.",
+      body: "Light takes about eighty minutes to reach Saturn. A question to Mission Control and its answer are two hours and forty minutes apart. NASA names distance from Earth as one of the five hazards of human spaceflight for precisely this reason: no human can be in the loop.",
     },
     {
       figure: String(MISSION.missionYears),
@@ -126,7 +127,7 @@ export const HOW_IT_WORKS = {
     onboard: `${MISSION.onboardSeconds} s`,
     earthLabel: "The same exchange via Mission Control",
     earth: `${MISSION.roundTripSeconds.toLocaleString("en-GB")} s`,
-    // 10,380 / 0.8 ≈ 12,975
+    // 9,600 / 0.8 = 12,000
     factor: `~${Math.round(MISSION.roundTripSeconds / MISSION.onboardSeconds / 1000)},000× faster`,
     note: "This is the entire argument for putting the voice on the vehicle. Not a better experience. The only workable one.",
   },
@@ -316,7 +317,7 @@ export const TALK = {
  * ================================================================== */
 export const HIGHLIGHTS = {
   eyebrow: "Mission requirements",
-  lead: "The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew 890 million miles from Earth.",
+  lead: "The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew an hour and twenty minutes from Earth.",
   heading: "What the mission would demand of a voice.",
   /** Marker labels. Rendered against a filled / hollow telemetry dot. */
   statusToday: "Ships today",
@@ -334,7 +335,7 @@ export const HIGHLIGHTS = {
       unit: "minutes one way",
       title: "No round trip home",
       status: "open",
-      body: "At Saturn, a question and its answer are two hours and fifty-three minutes apart. The voice would have to hear, reason and reply without reaching a server at all. Nothing does that yet.",
+      body: "At Saturn, a question and its answer are two hours and forty minutes apart. The voice would have to hear, reason and reply without reaching a server at all. Nothing does that yet.",
     },
     {
       figure: "Any",
@@ -515,54 +516,57 @@ export const POWERED_BY = {
  * there is stronger than easing in.
  *
  * Numbers here are physical only: MISSION.owltMinutes one way, twice
- * that for a question and an answer. No product claims. The on-prem
- * paragraph is deliberately "is building toward", not "already ships" —
- * ElevenLabs' on-premise and on-device offerings are in early access,
- * and overstating them here would undo the point of the section.
+ * that for a question and an answer.
+ *
+ * The two halves used to be labelled "Channel A" and "Channel B". Those
+ * were working titles that survived into the page: nobody knows what a
+ * channel is here, and lettering them made a reader hold two abstract
+ * tokens before receiving any meaning. They are named by location now,
+ * because location is the entire point.
+ *
+ * The product paragraph names releases and a date on purpose. It read
+ * "is already building for it", which sounds like a hedge covering an
+ * absence of research. Every claim in it is checkable, and the section
+ * is only persuasive if a reader who checks finds it exact.
  * ================================================================== */
 export const NO_UPLINK = {
   eyebrow: "Working without a link",
   heading: "Earth is eighty minutes away. E.L.S.A. is not.",
   intro:
     "Every voice assistant you have used answers over a network. At Saturn there is no network. There is only a link, eighty minutes wide. A question and its answer are a hundred and sixty minutes apart. So E.L.S.A. is built as two separate things, and only one of them ever crosses space.",
-  channels: [
-    {
-      tag: "Channel A",
-      title: "The crew talks to E.L.S.A.",
-      body: "Voice in, voice out, instant. Hearing, reasoning and speech all run on the ship. Nothing leaves the hull, so nothing has to come back. The crew never types, never waits, never calls home. They just talk.",
-      note: "This is an ordinary voice agent loop. The only difference is where it runs.",
-    },
-    {
-      tag: "Channel B",
-      title: "Earth sends to the ship",
-      body: "Not a conversation. A procedure update from mission control. A message from a daughter. It crosses once, slowly, in one direction. It is the only thing that crosses at all.",
-      note: "It crosses as text. Earth does not transmit audio, it transmits words. The ship speaks them in a voice it already carries: kilobytes instead of megabytes, and the crew still hears the person they love saying it.",
-    },
-  ],
-  points: [
-    {
-      title: "The voice is made on Earth",
-      body: "Cloning is a connected, consented studio session, months before launch. What flies is a frozen voice. Not an account, not a subscription, nothing to log in to and nothing to renew.",
-    },
-    {
-      title: "Deterministic mode",
-      body: "For anything life-critical, E.L.S.A. does not generate. It reads from a signed checklist loaded before launch, word for word, and says which one it is reading. Generation is for company. It is never for an instruction that can kill someone.",
-    },
-    {
-      title: "Where this is already real",
-      body: "Air-gapped is not a new requirement, and ElevenLabs is already building for it: on-premise and on-device models, aimed at edge and embedded hardware, with no audio leaving your infrastructure. A spacecraft is that same requirement at its limit. What does not exist yet is the rest of it: the whole loop running on radiation-tolerant compute, unattended, for seven years. That gap is real, and naming it is the only reason to believe the rest of this page.",
-    },
-  ],
   payoff: "You cannot call home. So home comes with you.",
+  /** The voice is enrolled on Earth, and it does not improvise instructions. */
+  trust:
+    "The voice itself is made on Earth. Cloning is a connected, consented studio session, months before launch; what flies is a frozen voice, not an account, not a subscription, nothing to log in to and nothing to renew. And for anything life-critical, E.L.S.A. does not generate at all. It reads from a signed checklist loaded before launch, word for word, and says which one it is reading. Generation is for company. It is never for an instruction that can kill someone.",
+  /** Verified against elevenlabs.io/blog/enterprise-voice-ai-deployed-locally. */
+  real: "None of this is a new requirement. On 9 April 2026 ElevenLabs announced On-Premise and On-Device deployment, both in early access, with initial releases expected in the first half of 2026. On-Premise runs on your own servers, in your own data centre, on confidential computing infrastructure with GPUs, and supports air-gapped deployment where isolation is required. On-Device runs directly on the hardware itself, built for offline inference on constrained compute, and the use case ElevenLabs names is automotive: manufacturers embedding voice into vehicles and wearables. Both are purpose-built models, not cloud models packaged for local execution.",
+  argument:
+    "A spacecraft is that same requirement one environment further out. The car, seven years from a mechanic.",
+  gap: "What does not exist yet is the whole loop running on radiation-tolerant compute, unattended, for seven years. That gap is real, and naming it is the only reason to believe the rest of this page.",
   diagram: {
     title: "How E.L.S.A. works with no link to Earth",
-    desc: "Two channels, drawn to different scales. Inside the ship, a small closed loop in amber labelled hear, reason and speak, carrying the crew's conversation onboard, with no line leaving the hull. Separately, a single thin blue line runs the full width of the frame from Earth to the ship, labelled eighty minutes, carrying text only, and arriving in one direction.",
-    ship: "the ship",
-    loop: "onboard loop",
+    desc: "Inside the ship, a closed amber loop carries the crew's conversation: hear, then reason, then speak. No line leaves it. Reaching the ship from far off to the right is a single thin blue line from Earth, marked eighty minutes, and it ends on the speak node itself, entering the loop at exactly that point. What arrives over it is words, which the ship then says aloud in a voice it already carries.",
+    ship: "Inside the ship",
+    line: "The line to Earth",
     nodes: ["hear", "reason", "speak"],
     delay: "80 minutes",
-    payload: "text only",
     earth: "Earth",
+    /**
+     * Annotations sit on the drawing rather than in cards beside it, so the
+     * diagram explains itself. Pre-broken into lines because SVG text does not
+     * wrap: the wide and narrow frames need different break points, which is
+     * layout rather than copy, but the words are identical in both.
+     */
+    shipNote: ["The crew just talks.", "Voice in, voice out, instant.", "Nothing ever leaves the hull."],
+    lineNote: [
+      "What crosses is words, not audio.",
+      "The ship speaks them in a voice it already carries.",
+    ],
+    lineNoteNarrow: [
+      "What crosses is words, not audio.",
+      "The ship speaks them in a voice",
+      "it already carries.",
+    ],
   },
 } as const;
 

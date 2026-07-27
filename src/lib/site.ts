@@ -21,16 +21,21 @@ export const SITE = {
  * Mission figures quoted on the site, kept here so they cannot drift between
  * sections. All of them are real.
  *
- * Light time to Saturn is 66–86 minutes one way depending on where the two
- * planets sit in their orbits, so the round trip to anyone who could help runs
- * to 2h 53m at worst. That single fact is why the voice has to be onboard.
+ * Light time to Saturn runs 66–86 minutes one way depending on where the two
+ * planets sit in their orbits. The site fixes on 80, and every other figure
+ * below follows from it: the round trip is exactly twice that. It used to
+ * quote the worst case (86.5 one way, 2h 53m round trip) alongside the 80,
+ * which meant two sections stated two different round trips. One number, doubled,
+ * is easier to trust than two correct ones that disagree.
+ *
+ * That single fact is why the voice has to be onboard.
  */
 export const MISSION = {
   /** One-way light time, minutes, at the point the site is set. */
   owltMinutes: 80,
-  /** Worst-case round trip to Mission Control. */
-  roundTrip: "2h 53m",
-  roundTripSeconds: 10_380,
+  /** Round trip to Mission Control: owltMinutes, there and back. */
+  roundTrip: "2h 40m",
+  roundTripSeconds: 9_600,
   /** Full onboard hear → reason → speak loop. */
   onboardSeconds: 0.8,
   crew: 4,

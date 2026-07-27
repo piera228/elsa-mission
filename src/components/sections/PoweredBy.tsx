@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { POWERED_BY } from "@/lib/content";
 import { Section, SectionTitle, Reveal } from "@/components/novel/Chrome";
 
@@ -36,18 +35,6 @@ export function PoweredBy() {
         ))}
       </div>
 
-      {/* Spacing picked up from the removed Payoff, which carried its own top rule. */}
-      <Reveal className="mt-10">
-        <Link
-          href="/about"
-          className="group inline-flex items-center gap-2.5 rounded-full border border-seam-lit px-5 py-2.5 font-mono text-xs uppercase tracking-[0.15em] text-paper transition-colors hover:border-elsa/60 hover:text-elsa"
-        >
-          Learn more about the project
-          <span aria-hidden className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </Link>
-      </Reveal>
     </Section>
   );
 }
