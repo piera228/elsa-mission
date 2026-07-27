@@ -402,7 +402,7 @@ export const PERSONALIZE = {
   /** Verbatim, and intentionally without a full stop. */
   heading: "Trust has to exist before launch",
   body: [
-    "Under pressure, people do not follow the voice that sounds best. They follow the voice they already know. That is why it is chosen on Earth, years before the ship leaves: not because choice is a nice thing to offer, but because familiarity is what a person falls back on when there is nothing else to fall back on.",
+    "Under pressure, people do not follow the voice that sounds best. They follow the voice they already know.",
   ],
   manifest: {
     /**
