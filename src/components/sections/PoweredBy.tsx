@@ -7,18 +7,15 @@ import { Section, SectionTitle, Reveal } from "@/components/novel/Chrome";
  * cards, each anchored to a real model id (mono, elsa-deep — the established
  * model-badge treatment from HowItWorks). Server component, no JS.
  *
- * No payoff line: the heading's "one piece doesn't" is answered by NO_UPLINK
- * immediately below, so closing the argument here would say it twice and blunt
- * the section that exists to make it properly.
+ * No heading and no payoff line. It runs on its eyebrow, one line of intro and
+ * the four cards, so the argument is carried by the model ids rather than by
+ * framing around them. Note the section therefore has no h2 and does not appear
+ * in the document outline; the eyebrow labels it visually but is not a heading.
  */
 export function PoweredBy() {
   return (
     <Section id="powered-by" className="!pt-0">
-      <SectionTitle
-        eyebrow={POWERED_BY.eyebrow}
-        heading={POWERED_BY.heading}
-        intro={POWERED_BY.intro}
-      />
+      <SectionTitle eyebrow={POWERED_BY.eyebrow} intro={POWERED_BY.intro} />
 
       <div className="grid gap-px overflow-hidden rounded-sm border border-seam bg-seam sm:grid-cols-2">
         {POWERED_BY.capabilities.map((c) => (

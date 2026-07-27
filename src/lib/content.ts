@@ -467,9 +467,8 @@ export const DESIGNED_FOR = {
  * ================================================================== */
 export const POWERED_BY = {
   eyebrow: "How E.L.S.A. is built",
-  heading: "Almost all of this ships today. One piece doesn't.",
   intro:
-    "Click 'Talk live' and it's real. Reasoning, voice and understanding, wired together from models anyone can use right now.",
+    "Reasoning, voice and understanding, wired together from models anyone can use right now.",
   /** Badge shown against each capability. All four genuinely are available. */
   availableLabel: "Available today",
   capabilities: [

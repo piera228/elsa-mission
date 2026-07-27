@@ -42,6 +42,10 @@ export function Section({
 /**
  * Section heading. Eyebrow in cold mono, title in warm serif — the same
  * warm/cold split the palette uses throughout.
+ *
+ * `heading` is optional: a section can run on its eyebrow and intro alone. When
+ * it is omitted the intro takes the heading's top margin, so the rhythm below
+ * the rule stays the same either way.
  */
 export function SectionTitle({
   eyebrow,
@@ -50,7 +54,7 @@ export function SectionTitle({
   model,
 }: {
   eyebrow: string;
-  heading: string;
+  heading?: string;
   intro?: string;
   /** Model id badge, when a section is anchored to a specific one. */
   model?: string;
@@ -63,12 +67,16 @@ export function SectionTitle({
         {model ? <code className="font-mono text-[0.7rem] text-elsa-deep">{model}</code> : null}
       </div>
 
-      <h2 className="mt-5 font-display text-3xl leading-[1.12] text-paper text-balance sm:text-4xl md:text-5xl">
-        <DecodeText text={heading} />
-      </h2>
+      {heading ? (
+        <h2 className="mt-5 font-display text-3xl leading-[1.12] text-paper text-balance sm:text-4xl md:text-5xl">
+          <DecodeText text={heading} />
+        </h2>
+      ) : null}
 
       {intro ? (
-        <p className="mt-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
+        <p
+          className={`${heading ? "mt-6" : "mt-5"} text-[1.0625rem] leading-[1.72] text-muted sm:text-lg`}
+        >
           {intro}
         </p>
       ) : null}
