@@ -57,16 +57,22 @@ export function Personalize() {
     <Section id="personalize" className="!pt-0 !pb-4 sm:!pb-6">
       <SectionTitle eyebrow={PERSONALIZE.eyebrow} heading={PERSONALIZE.heading} />
 
-      {/* No measure cap: body copy runs the full container width site-wide. */}
-      <Reveal className="mb-12 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:mb-14 sm:text-lg">
+      {/*
+        No measure cap: body copy runs the full container width site-wide.
+
+        The gap below is one paragraph's worth, not a section break. It was
+        sized when the body ran to two long paragraphs; against a single
+        sentence that much air read as a division rather than as a pause, and
+        the two lines belong together.
+      */}
+      <Reveal className="mb-6 space-y-6 text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">
         {PERSONALIZE.body.map((para) => (
           <p key={para.slice(0, 24)}>{para}</p>
         ))}
       </Reveal>
 
-      {/* Hands off to the manifest, so it sits with it rather than with the
-          paragraphs above. */}
-      <Reveal className="mb-6">
+      {/* Hands off to the manifest, so the larger gap goes here, below it. */}
+      <Reveal className="mb-9 sm:mb-10">
         <p className="text-[1.0625rem] leading-[1.72] text-muted sm:text-lg">{M.intro}</p>
       </Reveal>
 
