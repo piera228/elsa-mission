@@ -124,22 +124,6 @@ export default function AboutPage() {
             </p>
           </Block>
 
-          <Block title="What the page argues">
-            <p>
-              It opens on the silence, then hands you the console. After that it is a specification:
-              six mission requirements a voice would have to meet, the manifest of voices chosen
-              before launch, the stack it is built from, and how any of it works with no link to
-              Earth.
-            </p>
-            <p>
-              That last section is the one that matters. Every voice assistant answers over a
-              network, and at Saturn there is no network to answer over. So the argument is drawn
-              rather than asserted: a closed loop inside the ship carrying the conversation, and a
-              single thin line from Earth carrying text, arriving eighty minutes later and ending on
-              the word the ship speaks with.
-            </p>
-          </Block>
-
           <Block title="Made with">
             <p>
               Built by{" "}
