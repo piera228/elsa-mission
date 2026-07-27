@@ -188,6 +188,45 @@
 }
 
 /*
+  The two channels in the no-uplink diagram.
+
+  Speed is the argument. The onboard loop completes in 2.4s; the link from Earth
+  crawls at roughly one traverse every fifteen. Reading the two side by side
+  should make the point before any label is read, which is why the durations are
+  an order of magnitude apart rather than merely different.
+
+  Both are drawn as a second path on top of a solid one, so they are purely
+  additive — the diagram is complete and legible with no animation at all, which
+  is what a reduced-motion or scripting-disabled reader gets.
+
+  Both paths carry `pathLength="100"`, so these values are in normalised units
+  and hold for the wide and stacked versions of the diagram alike despite their
+  geometry being completely different. Each keyframe advances by exactly one dash
+  period, which is what keeps the travel seamless across loops.
+*/
+@keyframes loop-chase {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+@keyframes link-crawl {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+.loop-chase {
+  stroke-dasharray: 2 98;
+  animation: loop-chase 2.4s linear infinite;
+}
+
+.link-crawl {
+  stroke-dasharray: 1.5 10.5;
+  animation: link-crawl 1.8s linear infinite;
+}
+
+/*
   Terminal cursor / signal pulse. Stepped rather than eased, so it reads as a
   hardware blink rather than a fade. The global reduced-motion block below stops
   it, leaving the cursor solid.
@@ -327,6 +366,17 @@ body {
   .signal-pulse {
     animation: none !important;
     opacity: 1 !important;
+  }
+
+  /*
+    Stopped outright rather than force-shortened. These sit on top of solid
+    paths, so a frozen dash is simply a highlight on a complete diagram —
+    but letting the 0.001ms rule run them would park the dash at an arbitrary
+    offset mid-travel, which reads as a rendering fault rather than a still.
+  */
+  .loop-chase,
+  .link-crawl {
+    animation: none !important;
   }
 }
 

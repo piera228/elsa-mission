@@ -495,6 +495,77 @@ export const POWERED_BY = {
 } as const;
 
 /* ================================================================== *
+ * NO UPLINK — how any of this works with no internet
+ * ------------------------------------------------------------------
+ * The objection this section exists to answer: ElevenLabs' product runs
+ * over a network, and Saturn is 80 light-minutes away. Anyone reading
+ * this page will think it within seconds, so the page had better get
+ * there first.
+ *
+ * Everything rests on one distinction, and the section fails if a
+ * reader misses it: the crew's conversation never leaves the hull, and
+ * the only thing that crosses space is text.
+ *
+ * Heading candidates, kept for the record:
+ *   "There is no signal to wait for. So nothing waits."
+ *   "The link home carries words. The voice is already onboard."
+ * The chosen one leads with the physical fact, because a reader who
+ * knows the light-time arithmetic is already doing it — meeting them
+ * there is stronger than easing in.
+ *
+ * Numbers here are physical only: MISSION.owltMinutes one way, twice
+ * that for a question and an answer. No product claims. The on-prem
+ * paragraph is deliberately "is building toward", not "already ships" —
+ * ElevenLabs' on-premise and on-device offerings are in early access,
+ * and overstating them here would undo the point of the section.
+ * ================================================================== */
+export const NO_UPLINK = {
+  eyebrow: "Working without a link",
+  heading: "Earth is eighty minutes away. E.L.S.A. is not.",
+  intro:
+    "Every voice assistant you have used answers over a network. At Saturn there is no network — only a link, eighty minutes wide. A question and its answer are a hundred and sixty minutes apart. So E.L.S.A. is built as two separate things, and only one of them ever crosses space.",
+  channels: [
+    {
+      tag: "Channel A",
+      title: "The crew talks to E.L.S.A.",
+      body: "Voice in, voice out, instant. Hearing, reasoning and speech all run on the ship. Nothing leaves the hull, so nothing has to come back. The crew never types, never waits, never calls home. They just talk.",
+      note: "This is an ordinary voice agent loop. The only difference is where it runs.",
+    },
+    {
+      tag: "Channel B",
+      title: "Earth sends to the ship",
+      body: "Not a conversation. A procedure update from mission control. A message from a daughter. It crosses once, slowly, in one direction — and it is the only thing that crosses at all.",
+      note: "It crosses as text. Earth does not transmit audio, it transmits words. The ship speaks them in a voice it already carries: kilobytes instead of megabytes, and the crew still hears the person they love saying it.",
+    },
+  ],
+  points: [
+    {
+      title: "The voice is made on Earth",
+      body: "Cloning is a connected, consented studio session, months before launch. What flies is a frozen voice — not an account, not a subscription, nothing to log in to and nothing to renew.",
+    },
+    {
+      title: "Deterministic mode",
+      body: "For anything life-critical, E.L.S.A. does not generate. It reads from a signed checklist loaded before launch, word for word, and says which one it is reading. Generation is for company. It is never for an instruction that can kill someone.",
+    },
+    {
+      title: "Where this is already real",
+      body: "Air-gapped is not a new requirement, and ElevenLabs is already building for it — on-premise and on-device models, aimed at edge and embedded hardware, with no audio leaving your infrastructure. A spacecraft is that same requirement at its limit. What does not exist yet is the rest of it: the whole loop running on radiation-tolerant compute, unattended, for seven years. That gap is real, and naming it is the only reason to believe the rest of this page.",
+    },
+  ],
+  payoff: "You cannot call home. So home comes with you.",
+  diagram: {
+    title: "How E.L.S.A. works with no link to Earth",
+    desc: "Two channels, drawn to different scales. Inside the ship, a small closed loop in amber — hear, reason, speak — carrying the crew's conversation onboard, with no line leaving the hull. Separately, a single thin blue line runs the full width of the frame from Earth to the ship, labelled eighty minutes, carrying text only, and arriving in one direction.",
+    ship: "the ship",
+    loop: "onboard loop",
+    nodes: ["hear", "reason", "speak"],
+    delay: "80 minutes",
+    payload: "text only",
+    earth: "Earth",
+  },
+} as const;
+
+/* ================================================================== *
  * CAPABILITY MAP
  * ================================================================== */
 export const CAPABILITIES = {

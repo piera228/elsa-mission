@@ -5,6 +5,7 @@ import { TalkToElsa } from "@/components/sections/TalkToElsa";
 import { Highlights } from "@/components/sections/Highlights";
 import { Personalize } from "@/components/sections/Personalize";
 import { PoweredBy } from "@/components/sections/PoweredBy";
+import { NoUplink } from "@/components/sections/NoUplink";
 import { DesignedFor } from "@/components/sections/DesignedFor";
 import { SITE } from "@/lib/site";
 
@@ -19,6 +20,7 @@ export default function Home() {
         <Highlights />
         <Personalize />
         <PoweredBy />
+        <NoUplink />
         <DesignedFor />
       </main>
       <footer className="relative z-10 border-t border-seam px-5 py-12 sm:px-8">
