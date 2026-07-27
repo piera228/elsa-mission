@@ -54,6 +54,12 @@ scribe_v2_realtime  →    onboard inference    →    eleven_flash_v2_5
 Total ≈ **0.8 s**, against **10,380 s** for the same exchange via Mission Control — about
 **13,000× faster**. That ratio is the entire argument for putting the voice on the vehicle.
 
+Two of those three stages ship today. The middle one — reasoning onboard, with no link home — is
+the open problem, and the site says so rather than implying otherwise. The live demo on the site
+does *not* run this loop: it is an ElevenAgents agent over WebRTC (Gemini 2.5 Flash for reasoning,
+`eleven_v3_conversational` for voice, expressive mode on by default), reaching a data centre like
+anything else.
+
 ---
 
 ## Running it

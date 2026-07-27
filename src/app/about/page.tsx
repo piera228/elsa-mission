@@ -93,12 +93,13 @@ export default function AboutPage() {
             </p>
             <p>
               &quot;Talk live&quot; opens a real, two-way conversation over WebRTC, built on an
-              ElevenLabs Agent: a{" "}
+              ElevenAgents agent: a{" "}
               <code className="font-mono text-[0.9em] text-elsa-deep">Gemini 2.5 Flash</code>{" "}
-              model reasons about what you say, ElevenLabs&apos;{" "}
-              <code className="font-mono text-[0.9em] text-elsa-deep">conversational v3</code>{" "}
-              voice speaks the reply, and the delivery is tuned to sound empathetic, warm, patient and
-              confident. You speak; E.L.S.A. answers, live.
+              model reasons about what you say,{" "}
+              <code className="font-mono text-[0.9em] text-elsa-deep">eleven_v3_conversational</code>{" "}
+              speaks the reply, and expressive mode — on by default with that voice — tunes the
+              delivery to sound empathetic, warm, patient and confident. You speak; E.L.S.A. answers,
+              live.
             </p>
           </Block>
 

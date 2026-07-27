@@ -25,7 +25,7 @@ export function PoweredBy() {
               <h3 className="text-lg font-medium text-paper">{c.title}</h3>
               <p className="mt-3 flex-1 text-[0.9375rem] leading-[1.7] text-muted">{c.body}</p>
               <p className="mt-6 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <span className="tel !text-telemetry-dim">Available today</span>
+                <span className="tel !text-telemetry-dim">{POWERED_BY.availableLabel}</span>
                 <code className="font-mono text-[0.7rem] text-elsa-deep">{c.model}</code>
               </p>
             </div>

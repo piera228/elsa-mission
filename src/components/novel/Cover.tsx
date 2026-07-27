@@ -5,6 +5,7 @@ import { COVER } from "@/lib/content";
 import { SCENES } from "@/lib/scenes";
 import { SceneGrain } from "./SceneCanvas";
 import { CoverScrollCue } from "./CoverScrollCue";
+import { CoverFilm } from "./CoverFilm";
 
 /**
  * The cover.
@@ -42,6 +43,11 @@ export function Cover() {
             style={{ objectPosition: `${spec.focalX}% 50%` }}
           />
         </div>
+        {/*
+          Layered over the still, never instead of it — see CoverFilm. Desktop
+          only, and absent entirely under reduced motion.
+        */}
+        <CoverFilm src="/scenes/01-cockpit.mp4" poster={cockpit.src} focalX={spec.focalX} />
         <SceneGrain />
         <Scrims />
 

@@ -32,17 +32,18 @@ export const COVER = {
  * ================================================================== */
 export const THE_SILENCE = {
   /**
-   * NOTE — factual inconsistency, supplied verbatim and left as written.
-   * "240 million miles" is roughly Earth–Mars at opposition. The rest of the
-   * site is set at Saturn: 80 light-minutes is about 890 million miles. If the
-   * Saturn framing stays, this should read "890 million miles", which scans
-   * identically. Flagged rather than silently changed — it's authored copy.
+   * "890 million miles" is Earth–Saturn, and it is the figure the rest of the
+   * site is built on: MISSION.owltMinutes (80) is the light time at that
+   * distance, and MISSION.roundTrip (2h 53m) follows from it. This previously
+   * read "240 million miles" — Earth–Mars at opposition — which contradicted
+   * both. Changed once the Highlights light-delay card put the two numbers on
+   * the same screen.
    */
   /** Label only — deliberately carries no figures that could contradict the site. */
   transmissionLabel: "Incoming transmission",
-  headline: "240 million miles from home, the silence is the hardest part.",
+  headline: "890 million miles from home, the silence is the hardest part.",
   body: [
-    "The universe doesn't care about our curiosity. It is vast, indifferent, and absolute. The crew that changes history will be out there alone — surrounded by nothing, responsible for everything.",
+    "The universe is vast, unforgiving, and indifferent to mistakes. The crew that changes history will be out there alone — surrounded by nothing, responsible for everything.",
     "In that silence, they don't need another screen. They need a voice they recognize. Calm. Human. Capable of understanding an instruction and acting on it without hesitation.",
     "We don't send interfaces into deep space. We send the sound of home.",
   ],
@@ -290,48 +291,78 @@ export const TALK = {
 } as const;
 
 /* ================================================================== *
- * HIGHLIGHTS — the case in one screen, each point backed by a figure
+ * HIGHLIGHTS — the bar the mission sets, not a product factsheet
+ * ------------------------------------------------------------------
+ * This section is read by people who build the models it names, so the
+ * two categories have to stay visually and grammatically distinct:
+ *
+ *   status "today" — a capability that ships now. Stated in the present
+ *     tense, and every figure must be checkable against ElevenLabs'
+ *     published documentation.
+ *   status "open"  — a mission requirement nothing satisfies yet.
+ *     Stated in the conditional ("would have to"), so it reads as a
+ *     specification rather than a claim about an existing product.
+ *
+ * Two claims were removed rather than reframed. "Trusted across
+ * aerospace and defence programs worldwide (40+)" was a false statement
+ * about ElevenLabs' customers, not an aspiration — no conditional tense
+ * could rescue it, so it is gone and the light-delay card took its slot.
+ * "Ten times faster than any other AI voice model" was unsourced; the
+ * real published figure (~75 ms) is stronger and is now used instead.
+ *
+ * Note the ~75 ms belongs to eleven_flash_v2_5, NOT to the model the
+ * live demo runs. Do not move that number onto v3 Conversational —
+ * ElevenLabs publishes no millisecond figure for it.
  * ================================================================== */
 export const HIGHLIGHTS = {
-  eyebrow: "The highlights",
-  lead: "The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew 240 million miles from Earth.",
-  heading: "Fast. Trusted. Built for the hardest missions.",
+  eyebrow: "Mission requirements",
+  lead: "The highest-value use case for a human-sounding voice isn't in the living room. It's in the moments when screens are impossible: a surgeon with sterile gloves, a pilot in IMC, a crew 890 million miles from Earth.",
+  heading: "What the mission would demand of a voice.",
+  /** Marker labels. Rendered against a filled / hollow telemetry dot. */
+  statusToday: "Ships today",
+  statusOpen: "Open problem",
   items: [
     {
-      figure: "10×",
-      unit: "faster",
-      title: "Fast",
-      body: "Ten times faster than any other AI voice model — under a second to hear, think and reply, entirely onboard.",
+      figure: "~75",
+      unit: "ms · flash v2.5",
+      title: "Fast enough to interrupt",
+      status: "today",
+      body: "Below about a second, people stop addressing a system and start talking to someone. eleven_flash_v2_5 generates speech in ~75 ms today. The live demo on this page runs eleven_v3_conversational instead, trading raw speed for expressive control.",
     },
     {
-      figure: "40+",
-      unit: "programs",
-      title: "Trusted",
-      body: "Trusted across aerospace and defence programs worldwide, from launch operations to deep-space missions.",
+      figure: "80",
+      unit: "minutes one way",
+      title: "No round trip home",
+      status: "open",
+      body: "At Saturn, a question and its answer are two hours and fifty-three minutes apart. The voice would have to hear, reason and reply without reaching a server at all — and nothing does that yet.",
     },
     {
       figure: "Any",
       unit: "environment",
       title: "Built for the hardest missions",
-      body: "From the crush of the deep ocean to thousands of light-years out — engineered for anywhere failure isn't an option.",
+      status: "open",
+      body: "It would have to hold through launch loads, radiation and seven years of vacuum — anywhere failure isn't an option, with no one to reboot it.",
     },
     {
       figure: "24/7",
       unit: "always on",
       title: "Always present",
-      body: "Never sleeps, never looks away, never needs waking — for the length of any mission.",
+      status: "today",
+      body: "Never sleeps, never looks away, never needs waking. Availability is the one mission requirement a hosted voice already meets in full.",
     },
     {
       figure: "70+",
       unit: "languages",
       title: "Human",
-      body: "Speaks and understands 70+ languages in a voice indistinguishable from a person's.",
+      status: "today",
+      body: "Four crew from four agencies, each answered in their own language. eleven_v3_conversational speaks 70+ of them today, with the warmth and inflection of a person's voice.",
     },
     {
       figure: "99.99%",
       unit: "uptime",
       title: "Reliable",
-      body: "Mission-grade reliability with full offline capability — always available, even far from any signal.",
+      status: "open",
+      body: "It would have to run entirely onboard and stay up for the length of the mission, far from any signal. Offline inference at this quality is the piece that does not exist.",
     },
   ],
 } as const;
@@ -416,13 +447,27 @@ export const DESIGNED_FOR = {
 } as const;
 
 /* ================================================================== *
- * POWERED BY ELEVENLABS — feasibility; every piece already ships
+ * POWERED BY ELEVENLABS — feasibility, and the one piece that is missing
+ * ------------------------------------------------------------------
+ * Every capability below is live on this page right now: the agent this
+ * site connects to runs Gemini 2.5 Flash for reasoning and
+ * eleven_v3_conversational for voice, with expressive mode on by
+ * default. That configuration lives in the ElevenLabs dashboard, not in
+ * this repo — the code sends only an agent_id (see elevenlabs.ts) — so
+ * if the agent is ever reconfigured, this copy must be updated by hand.
+ * Nothing here will break to warn you.
+ *
+ * The section used to close on "the technology is ready today", which
+ * made the aspirational figures elsewhere on the site read as product
+ * facts. The payoff now names the actual gap instead.
  * ================================================================== */
 export const POWERED_BY = {
   eyebrow: "How E.L.S.A. is built",
-  heading: "No new technology required. E.L.S.A. is built from tools that ship today.",
+  heading: "Almost all of this ships today. One piece doesn't.",
   intro:
     "Click 'Talk live' and it's real — reasoning, voice and understanding, wired together from models anyone can use right now.",
+  /** Badge shown against each capability. All four genuinely are available. */
+  availableLabel: "Available today",
   capabilities: [
     {
       title: "Reasons in real time",
@@ -431,22 +476,22 @@ export const POWERED_BY = {
     },
     {
       title: "Speaks like a person",
-      body: "ElevenLabs' conversational v3 turns each reply into natural, human speech, live over the call.",
-      model: "eleven_v3 · conversational",
+      body: "Eleven v3 Conversational turns each reply into natural, expressive speech, live over the call — v3's range at conversational latency.",
+      model: "eleven_v3_conversational",
     },
     {
       title: "With the right feeling",
-      body: "Delivery is tuned to sound empathetic, warm, patient and confident — steady exactly when it matters.",
+      body: "Expressive mode is on by default with v3 Conversational: delivery adapts to intent and emphasis, steady exactly when it matters.",
       model: "expressive mode",
     },
     {
       title: "Understands the crew",
       body: "The agent transcribes what's said in real time — accented, exhausted, or whispered — so the crew just talks.",
-      model: "ElevenLabs Agents",
+      model: "ElevenAgents",
     },
   ],
   payoff:
-    "The technology is ready today. All that's missing is the ambition to send it to space.",
+    "Every part of that runs today — over a network, to a data centre, with a link home. The piece that doesn't exist yet is the whole loop running onboard, 80 light-minutes from the nearest server. That is the distance between this demo and a mission.",
 } as const;
 
 /* ================================================================== *
