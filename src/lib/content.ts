@@ -436,7 +436,7 @@ export const BEYOND = {
  * ================================================================== */
 export const DESIGNED_FOR = {
   eyebrow: "Who this is for",
-  heading: "Designed for the agencies flying crews beyond Earth.",
+  heading: "Designed for the agencies with the toughest missions.",
   agencies: [
     { name: "NASA", full: "National Aeronautics and Space Administration", file: "nasa.png" },
     { name: "ESA", full: "European Space Agency", file: "esa.png" },
