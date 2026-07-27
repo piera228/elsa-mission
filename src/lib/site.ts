@@ -12,7 +12,8 @@ export const SITE = {
   linkedin: "https://www.linkedin.com/in/piera-malatrassi/",
 
   email: "pieramalatrassi.mb@gmail.com",
-  github: "https://github.com/piera228",
+  /** The repository, not the profile: both places that use it mean "the source". */
+  github: "https://github.com/piera228/elsa-mission",
   /** Drives metadataBase and the OpenGraph URL in layout.tsx. */
   url: "https://elsa-mission.vercel.app",
 } as const;
