@@ -358,7 +358,7 @@ export const HIGHLIGHTS = {
       body: "Four crew from four agencies, each answered in their own language. eleven_v3_conversational speaks 70+ of them today, with the warmth and inflection of a person's voice.",
     },
     {
-      figure: "99.99%",
+      figure: "100%",
       unit: "uptime",
       title: "Reliable",
       status: "open",
