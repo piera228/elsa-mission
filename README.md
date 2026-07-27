@@ -33,7 +33,7 @@ Seven sections, in order:
 
 | Section | What it does |
 | --- | --- |
-| **Cover** | Full-bleed cockpit frame. A 6s dolly-in plays over the still on desktop. |
+| **Cover** | Full-bleed cockpit frame. A slow dolly-in plays over the still on desktop. |
 | **The silence** | The premise, and the button that opens the console. |
 | **Talk to E.L.S.A.** | The console. Scripted exchanges, plus a live two-way conversation. Mounts only once `#use-case-talk` is set. |
 | **Mission requirements** | Six capabilities a voice would need, as a specification rather than a feature grid. |
