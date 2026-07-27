@@ -165,20 +165,29 @@ function Titles({ className }: { className?: string }) {
   );
 }
 
+/**
+ * The strip across the top of the cover.
+ *
+ * Paper, not the `telemetry-dim` used for the same role elsewhere. Everywhere
+ * else that colour sits on the near-black void and reads fine; here it sits on
+ * the illustration, and against the lit instrument panels in the upper corners
+ * it measured around 2.6:1 — under AA and genuinely hard to read. The scrim
+ * behind it is what makes paper safe at this size.
+ */
 function TelemetryStrip() {
   return (
     <div className="warp-type flex w-full flex-wrap items-center justify-center gap-x-5 gap-y-2">
       {COVER.telemetry.map((item, i) => (
         <span key={item} className="flex items-center gap-5">
           {i > 0 ? <span aria-hidden className="hidden h-2.5 w-px bg-seam-lit sm:block" /> : null}
-          <span className="tel !text-telemetry-dim">{item}</span>
+          <span className="tel !text-paper">{item}</span>
         </span>
       ))}
       <span className="flex items-center gap-5">
         <span aria-hidden className="hidden h-2.5 w-px bg-seam-lit sm:block" />
         <Link
           href="/about"
-          className="tel !text-telemetry-dim underline-offset-4 transition-colors hover:!text-elsa hover:underline"
+          className="tel !text-paper underline-offset-4 transition-colors hover:!text-elsa hover:underline"
         >
           Learn about the project ↗
         </Link>
